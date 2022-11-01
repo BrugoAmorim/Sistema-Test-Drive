@@ -1,0 +1,152 @@
+body{
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecalho{
+    height: 20%;
+    width: 100%;
+    background-color: #87ceeb;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.container-formlogin{
+    height: 65%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+footer{
+    height: 15%;
+    width: 100%;
+    background-color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.titulo{
+    width: 40%;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    font-size: 1.2em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.bloco-formulario{
+    height: 100%;
+    width: 40%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario{
+    height: 80%;
+    width: 75%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    border-radius: 6px;
+    background-color: whitesmoke;
+    box-shadow: 2px 3px 6px 1px rgb(155, 155, 155);
+}
+
+.entradas{
+    height: 70%;
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.criar-conta{
+    height: 15%;
+    width: 90%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.2em;
+}
+
+.inputs{
+    height: 15%;
+    width: 90%;
+    padding: 2%;
+
+    outline: none;
+
+    background-color: white;
+    border: 2px solid #87ceeb;
+    border-radius: 4px;
+
+    font-size: 1em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.inputs:hover{
+    transition: 0.3s;
+    border: 2px solid #1face4;
+}
+
+.btn-login{
+    height: 15%;
+    width: 95%;
+
+    background-color: #49bce9;
+    border: 1px solid #49bce9;
+    border-radius: 4px;
+
+    color: white;
+    cursor: pointer;
+    outline: none;
+
+    font-size: 1.1em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.btn-login:hover{
+    transition: 0.3s;
+    background-color: #1face4;
+    border: 1px solid #1face4;
+}
+
+.creditos, .incorporacao{
+    height: 60%;
+    width: 20%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.3em;
+}

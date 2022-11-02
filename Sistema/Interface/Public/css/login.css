@@ -62,7 +62,7 @@ footer{
 }
 
 .formulario{
-    height: 80%;
+    height: 75%;
     width: 75%;
 
     display: flex;
@@ -117,7 +117,7 @@ footer{
 }
 
 .btn-login{
-    height: 15%;
+    height: 18%;
     width: 95%;
 
     background-color: #49bce9;

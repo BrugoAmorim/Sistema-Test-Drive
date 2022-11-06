@@ -72,7 +72,7 @@ footer{
 
     border-radius: 6px;
     background-color: whitesmoke;
-    box-shadow: 2px 3px 6px 1px rgb(155, 155, 155);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .entradas{

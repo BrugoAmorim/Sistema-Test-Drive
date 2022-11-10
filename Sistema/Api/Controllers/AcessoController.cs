@@ -10,6 +10,24 @@ namespace Api.Controllers
     [Route("[controller]")]
     public class AcessoController : ControllerBase
     {
-        
+        Utils.AcessoUtils conversor = new Utils.AcessoUtils();
+        Business.AcessoBusiness validacoes = new Business.AcessoBusiness();
+
+        [HttpPost("login")]
+        public ActionResult<Models.Response.LoginResponse> LoginSistema(Models.Request.LoginRequest logar){
+
+            try{
+            Models.TbUsuario usuario = validacoes.validarLogin(logar);
+            Models.Response.LoginResponse usuarioRes = conversor.TbUsuarioparaLoginRes(usuario);
+
+            return usuarioRes;
+            }
+            catch(System.Exception ex){
+
+                return new BadRequestObjectResult(
+                    new Models.ErrorResponse(ex.Message, 400)
+                );
+            }
+        }
     }
-}
+}   

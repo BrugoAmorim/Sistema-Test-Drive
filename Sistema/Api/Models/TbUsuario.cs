@@ -19,7 +19,7 @@ namespace Api.Models
         public DateTime DtUltimoLogin { get; set; }
         public DateTime DtContaCriada { get; set; }
         public DateTime DtContaAtualizada { get; set; }
-        public int? IdNivelAcesso { get; set; }
+        public int IdNivelAcesso { get; set; }
 
         public virtual TbNivelAcesso? IdNivelAcessoNavigation { get; set; }
         public virtual ICollection<TbCliente> TbClientes { get; set; }

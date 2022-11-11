@@ -15,6 +15,7 @@ namespace Api.Utils
             Models.TbNivelAcesso cargo = niveis.First(x => x.IdNivelAcesso == req.IdNivelAcesso);
 
             Models.Response.LoginResponse usuarioRes = new Models.Response.LoginResponse();
+            usuarioRes.idusuario = req.IdUsuario;
             usuarioRes.email = req.DsEmail;
             usuarioRes.usuario = req.NmUsuario;
             usuarioRes.datanascimento = req.DtNascimento;
@@ -24,6 +25,22 @@ namespace Api.Utils
             usuarioRes.nivelacesso = cargo.DsNivel;
 
             return usuarioRes;
+        }
+
+        public Models.TbUsuario UsuarioReqparaTbUsuario(Models.Request.NovaContaRequest req){
+
+            Models.TbUsuario modelTb = new Models.TbUsuario();
+
+            modelTb.DsEmail = req.email;
+            modelTb.DtNascimento = req.nascimento;
+            modelTb.NmUsuario = req.usuario;
+            modelTb.DsSenha = req.senha;
+            modelTb.DtContaCriada = DateTime.Now;
+            modelTb.DtContaAtualizada = DateTime.Now;
+            modelTb.DtUltimoLogin = DateTime.Now;
+            modelTb.IdNivelAcesso = 2;
+
+            return modelTb;
         }
     }
 }

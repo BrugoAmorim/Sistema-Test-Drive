@@ -29,5 +29,22 @@ namespace Api.Controllers
                 );
             }
         }
+
+        [HttpPost("novaconta")]
+        public ActionResult<Models.Response.LoginResponse> CriarConta(Models.Request.NovaContaRequest req){
+
+            try{
+                Models.TbUsuario novousuario = validacoes.validarNovaConta(req);
+                Models.Response.LoginResponse caixoteRes = conversor.TbUsuarioparaLoginRes(novousuario);
+            
+                return caixoteRes;
+            }
+            catch(System.Exception ex){
+
+                return new BadRequestObjectResult(
+                    new Models.ErrorResponse(ex.Message, 400)
+                );
+            }
+        }
     }
 }   

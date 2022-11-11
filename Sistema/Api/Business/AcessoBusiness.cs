@@ -52,11 +52,7 @@ namespace Api.Business
             if(ValidarCampos.ValidarEmail(req.email) == false)
                 throw new ArgumentException("Este email é inválido");
 
-            if(req.senha.Length < 8)
-                throw new ArgumentException("Senha muito curta");
-
-            if(req.senha.Length > 30)
-                throw new ArgumentException("Senha muito longa");
+            ValidarCampos.ValidarSenha(req.senha);
 
             Models.TbUsuario usuarioCriado = bd.salvarNovaConta(req);
             return usuarioCriado;

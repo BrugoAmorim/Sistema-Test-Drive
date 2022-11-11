@@ -7,15 +7,6 @@ namespace Api.Business
 {
     public class ValidarCamposBusiness
     {
-        public bool validaData(string data)
-        {
-            DateTime resultado = DateTime.MinValue; 
-
-            if (DateTime.TryParse(data, out resultado)) 
-                return true; 
-                
-            return false;
-        } 
 
         public bool ValidarEmail(string Email)
         {
@@ -39,6 +30,24 @@ namespace Api.Business
             }
             return ValidEmail;
         }     
-                      
+
+        public void ValidarSenha(string senha){
+
+            if(senha.Length < 8)
+                throw new ArgumentException("Senha muito curta");
+
+            if(senha.Length > 30)
+                throw new ArgumentException("Senha muito longa");
+
+            if(!senha.Contains("&") && !senha.Contains("$") && !senha.Contains("@") && !senha.Contains("#")
+            && !senha.Contains("%") && !senha.Contains("!"))
+                throw new ArgumentException("Utilize pelo menos um caracter especial [@-!-#-$-%-&]");
+
+            if(!senha.Contains("0") && !senha.Contains("1") && !senha.Contains("2") && !senha.Contains("3") &&
+            !senha.Contains("4") && !senha.Contains("5") && !senha.Contains("6") && !senha.Contains("7") &&
+            !senha.Contains("8") && !senha.Contains("9"))
+                throw new ArgumentException("Utilize pelo menos um número na senha");
+
+        }              
     }
 }

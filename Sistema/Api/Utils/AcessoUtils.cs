@@ -7,23 +7,28 @@ namespace Api.Utils
 {
     public class AcessoUtils
     {
+        Database.UsuarioDatabase banco = new Database.UsuarioDatabase();
         
         public Models.Response.LoginResponse TbUsuarioparaLoginRes(Models.TbUsuario req){
 
-            Models.dbTestDriveContext ctx = new Models.dbTestDriveContext();
-            List<Models.TbNivelAcesso> niveis = ctx.TbNivelAcessos.ToList();
-            Models.TbNivelAcesso cargo = niveis.First(x => x.IdNivelAcesso == req.IdNivelAcesso);
+            Models.TbNivelAcesso cargo = banco.nivelacesso(req.IdNivelAcesso);
 
             Models.Response.LoginResponse usuarioRes = new Models.Response.LoginResponse();
-            usuarioRes.idusuario = req.IdUsuario;
-            usuarioRes.email = req.DsEmail;
-            usuarioRes.usuario = req.NmUsuario;
-            usuarioRes.datanascimento = req.DtNascimento;
-            usuarioRes.ultimologin = req.DtUltimoLogin;
-            usuarioRes.contacriada = req.DtContaCriada;
-            usuarioRes.contaatualizada = req.DtContaAtualizada;
-            usuarioRes.nivelacesso = cargo.DsNivel;
+            usuarioRes.codigo = 200;
+            usuarioRes.status = "Sucesso";
+            usuarioRes.mensagem = "Ação realizada com êxito";
 
+            Models.Response.LoginResponse.Dados dados = new Models.Response.LoginResponse.Dados();
+            dados.idusuario = req.IdUsuario;
+            dados.email = req.DsEmail;
+            dados.usuario = req.NmUsuario;
+            dados.datanascimento = req.DtNascimento;
+            dados.ultimologin = req.DtUltimoLogin;
+            dados.contacriada = req.DtContaCriada;
+            dados.contaatualizada = req.DtContaAtualizada;
+            dados.nivelacesso = cargo.DsNivel;
+
+            usuarioRes.dados = dados;
             return usuarioRes;
         }
 

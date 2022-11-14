@@ -8,8 +8,7 @@ namespace Api.Database
     public class UsuarioDatabase
     {
         Models.dbTestDriveContext ctx = new Models.dbTestDriveContext();
-        Utils.AcessoUtils conversor = new Utils.AcessoUtils();
-
+        
         public Models.TbUsuario ?buscarUsuarioEmail(string ?email){
 
             List<Models.TbUsuario> usuarios = ctx.TbUsuarios.ToList();
@@ -20,6 +19,7 @@ namespace Api.Database
 
         public Models.TbUsuario salvarNovaConta(Models.Request.NovaContaRequest req){
 
+            Utils.AcessoUtils conversor = new Utils.AcessoUtils();
             Models.TbUsuario novoUser = conversor.UsuarioReqparaTbUsuario(req);
 
             ctx.TbUsuarios.Add(novoUser);
@@ -27,5 +27,12 @@ namespace Api.Database
 
             return novoUser;
         }
+
+        public Models.TbNivelAcesso nivelacesso(int idnivel){
+
+            Models.TbNivelAcesso nvl = ctx.TbNivelAcessos.First(x => x.IdNivelAcesso == idnivel);
+            return nvl;
+        }
+
     }
 }

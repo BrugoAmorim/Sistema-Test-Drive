@@ -17,6 +17,9 @@ namespace Api.Business
             if(string.IsNullOrEmpty(req.senha))
                 throw new ArgumentException("Campo Senha obrigátorio");
 
+            if(ValidarCampos.ValidarEmail(req.email) == false)
+                throw new ArgumentException("Insira um Email válido");
+
             Models.TbUsuario ?usuario = bd.buscarUsuarioEmail(req.email);
 
             if(usuario == null)

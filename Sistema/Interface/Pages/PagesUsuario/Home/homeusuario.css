@@ -202,8 +202,3 @@ h1{
     align-items: center;
     justify-content: center;
 }
-
-.meu-perfil:hover{
-    transition: 0.3s;
-    background-color: rgba(0,0,0,0.14);
-}

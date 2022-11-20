@@ -30,5 +30,38 @@ namespace Api.Business
 
             return filterCars;            
         }
+
+        public Models.TbTestDrive validarNovoAgendamento(Models.Request.AgendarRequest req, int iduser){
+
+            Database.UsuarioDatabase dbuser = new Database.UsuarioDatabase();
+            Models.TbUsuario user = dbuser.buscarUsuarioId(iduser);
+
+            if(user == null)
+                throw new ArgumentException("Este usuário não existe");
+
+            if(string.IsNullOrEmpty(req.cliente))
+                throw new ArgumentException("Campo Nome do cliente é obrigatorio");
+                
+            if(string.IsNullOrEmpty(req.endereco))
+                throw new ArgumentException("Campo Endereço é obrigatorio");
+
+            if(string.IsNullOrEmpty(req.rg))
+                throw new ArgumentException("Campo Rg é obrigatorio");
+            
+            if(string.IsNullOrEmpty(req.cpf))
+                throw new ArgumentException("Campo Cpf é obrigatorio");
+                
+            if(string.IsNullOrEmpty(req.cnh))
+                throw new ArgumentException("Campo Cnh é obrigatorio");
+
+            if(req.telefone.Length > 20)
+                throw new ArgumentException("Este telefone é inválido");
+                
+            if(req.celular.Length > 20)
+                throw new ArgumentException("Este celular é inválido");
+
+            Models.TbTestDrive agendamento = bd.SalvarAgendamento(req, iduser);
+            return agendamento;
+        }
     }
 }

@@ -18,7 +18,7 @@ namespace Api.Models
         public string NrCnh { get; set; } = null!;
         public string? NrTelefone { get; set; }
         public string? NrCelular { get; set; }
-        public int? IdUsuario { get; set; }
+        public int IdUsuario { get; set; }
 
         public virtual TbUsuario? IdUsuarioNavigation { get; set; }
         public virtual ICollection<TbTestDrive> TbTestDrives { get; set; }

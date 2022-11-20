@@ -47,5 +47,14 @@ namespace Api.Controllers
                 );
             }
         }
+
+        [HttpPost("agendar/novotest/{idusuario}")]
+        public Models.Response.AgendamentoResponse FazerAgendamento(Models.Request.AgendarRequest req, int idusuario){
+
+            Models.TbTestDrive agendamento = validacoes.validarNovoAgendamento(req, idusuario);
+
+            Models.Response.AgendamentoResponse TestdriveRes = conversor.TbTestDriveparaTestRes(agendamento);
+            return TestdriveRes;
+        }
     }
 }

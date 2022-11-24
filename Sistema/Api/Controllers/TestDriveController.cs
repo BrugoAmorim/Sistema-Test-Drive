@@ -30,24 +30,7 @@ namespace Api.Controllers
                 );
             }
         }
-
-        [HttpGet("consultar/filtrar-modelo")]
-        public ActionResult<List<Models.Response.CarrosResponse>> FiltrarModelo(string modelo){
-
-            try{
-                List<Models.TbCarro> carros = validacoes.validarFiltroModelo(modelo);
-                
-                List<Models.Response.CarrosResponse> carrosRes = conversor.ListarCarrosRes(carros);
-                return carrosRes;
-            }
-            catch(System.Exception ex){
-
-                return new BadRequestObjectResult(
-                    new Models.ErrorResponse(ex.Message, 400)
-                );
-            }
-        }
-
+        
         [HttpPost("agendar/novotest/{idusuario}")]
         public Models.Response.AgendamentoResponse FazerAgendamento(Models.Request.AgendarRequest req, int idusuario){
 

@@ -26,13 +26,13 @@
                     </div>
                     <div class="bloco-inputs">
                         <input type="text" class="entrada" placeholder="Celular">
-                        <input type="date" class="entrada" placeholder="Data">
+                        <input type="datetime-local" class="entrada">
                     </div>
                     <div class="bloco-inputs">
-                        <select class="select">
+                        <select class="select" id="escolherModelo">
                             <option selected>Modelos</option>
                         </select>
-                        <select class="select">
+                        <select class="select" id="selecionarCarro">
                             <option selected>Carros</option>
                         </select>
                     </div>
@@ -51,16 +51,70 @@
                     </div>
                     <div class="informacoes">
                         <div class="detalhes">
-                            <p>Modelo: ****</p>
-                            <p>Fabricante: ****</p>
-                            <p>Potência: ****</p>
-                            <p>Câmbio: ****</p>
-                        </div>
-                        <div class="detalhes2">
-                            <p>Ano fabricação: ****</p>
-                            <p>Ano modelo: ****</p>
-                            <p>Combustivel: ****</p>
-                            <p>Preço: ****</p>
+                            <div class="expecificacao">
+                                <div class="label">
+                                    <strong>Modelo:</strong>
+                                </div>
+                                <div class="conteudo">
+                                    <span id="modelo-carro"></span>
+                                </div>
+                            </div>
+                            <div class="expecificacao">
+                                <div class="label">
+                                    <strong>Fabricante:</strong>
+                                </div>
+                                <div class="conteudo">
+                                    <span id="fabricante-carro"></span>
+                                </div>
+                            </div>
+                            <div class="expecificacao">
+                                <div class="label">
+                                    <strong>Potência:</strong>    
+                                </div>
+                                <div class="conteudo">
+                                    <span id="potencia-carro"></span>
+                                </div>
+                            </div>
+                            <div class="expecificacao">
+                                <div class="label">
+                                    <strong>Câmbio:</strong>
+                                </div>
+                                <div class="conteudo">
+                                    <span id="cambio-carro"></span>
+                                </div>
+                            </div>
+                            <div class="expecificacao">
+                                <div class="label">
+                                    <strong>Ano fabricação:</strong>
+                                </div>
+                                <div class="conteudo">
+                                    <span id="anofab-carro"></span>
+                                </div>
+                            </div>
+                            <div class="expecificacao">
+                                <div class="label">
+                                    <strong>Ano modelo:</strong>
+                                </div>
+                                <div class="conteudo">
+                                    <span id="anomod-carro"></span>
+                                </div>
+                            </div>
+                            <div class="expecificacao">
+                                <div class="label">
+                                    <strong>Combustível:</strong>    
+                                </div>
+                                <div class="conteudo">
+                                    <span id="combustivel-carro"></span>
+                                </div>
+                            </div>
+                            <div class="expecificacao">
+                                <div class="label">
+                                    <strong>Preço:</strong>
+                                </div>
+                                <div class="conteudo">
+                                    <span id="preco-carro"></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="aviso">
@@ -78,5 +132,6 @@
             </div>
         </footer>
     </div>
+    <script src="../../Public/javascript/agendar.js" type="module"></script>
 </body>
 </html>

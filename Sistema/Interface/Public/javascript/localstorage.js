@@ -8,6 +8,7 @@ export const createlocalStorage = (user) => {
     localStorage.setItem("login", user.ultimologin);
     localStorage.setItem("criada", user.contacriada);
     localStorage.setItem("update", user.contaatualizada);
+    localStorage.setItem("nivelacesso", user.nivelacesso);
 }
 
 export const getlocalStorage = () => {
@@ -20,6 +21,7 @@ export const getlocalStorage = () => {
         login: localStorage.getItem("login"),
         criada: localStorage.getItem("criada"),
         update: localStorage.getItem("update"),
+        nvlacesso: localStorage.getItem("nivelacesso")
     }
 
     return informacoes;
@@ -34,4 +36,5 @@ export const deletelocalStorage = () => {
     localStorage.removeItem("login");
     localStorage.removeItem("criada");
     localStorage.removeItem("update");
+    localStorage.removeItem("nivelacesso");
 }

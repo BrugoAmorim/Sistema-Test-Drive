@@ -6,8 +6,6 @@ window.onload = () => {
 
   const dados = getlocalStorage();
   nmuser.appendChild(document.createTextNode(dados.user));
-
-  console.log(dados);      
 }
 
 const logoff = document.getElementById("btn-logoff");

@@ -84,7 +84,7 @@ body{
     justify-content: space-evenly;
 }
 
-.eventos button{
+.eventos a{
     height: 18%;
     width: 85%;
 
@@ -92,7 +92,13 @@ body{
     border: 2px solid #ffc222;
     border-radius: 6px;
     background-color: white;
+    color: black;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
     cursor: pointer;
     outline: none;
 
@@ -100,7 +106,7 @@ body{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.eventos button:hover{
+.eventos a:hover{
     transition: 0.3s;
     background-color: #ffc222;
     color: white;

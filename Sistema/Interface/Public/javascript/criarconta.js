@@ -40,7 +40,7 @@ btnCriar.onclick = async () => {
                 Datanascimento.value = "";
                 Senha.value = "";
                 ConfirmarSenha.value = "";
-            }
+            }   
 
             else if(data.codigo == 400)
                 swal(data.status, data.mensagem, 'error');

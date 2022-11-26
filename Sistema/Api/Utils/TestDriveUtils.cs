@@ -93,5 +93,17 @@ namespace Api.Utils
 
             return TestRes;
         }
+
+        public List<Models.Response.AgendamentoResponse> TbListaTestparaTestRes(List<Models.TbTestDrive> req){
+
+            List<Models.Response.AgendamentoResponse> agendamentosRes = new List<Models.Response.AgendamentoResponse>();
+
+            foreach(Models.TbTestDrive item in req)
+            {
+                agendamentosRes.Add(TbTestDriveparaTestRes(item));
+            }
+
+            return agendamentosRes;
+        }
     }
 }

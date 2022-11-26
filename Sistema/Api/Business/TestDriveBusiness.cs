@@ -63,5 +63,15 @@ namespace Api.Business
             Models.TbTestDrive agendamento = bd.SalvarAgendamento(req, iduser);
             return agendamento;
         }
+
+        public List<Models.TbTestDrive> validarGetAgendamentos(){
+
+            List<Models.TbTestDrive> testsdrives = bd.listartestdrives();
+
+            if(testsdrives.Count == 0)
+                throw new ArgumentException("Não foram encontrados nenhum registro");
+
+            return testsdrives; 
+        }
     }
 }

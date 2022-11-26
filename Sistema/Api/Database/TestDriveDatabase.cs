@@ -51,5 +51,18 @@ namespace Api.Database
 
             return Agendamento;
         }
+
+        public List<Models.TbTestDrive> listartestdrives(){
+
+            List<Models.TbTestDrive> tests = ctx.TbTestDrives.Include(x => x.IdClienteNavigation)
+                                                             .Include(x => x.IdCarroNavigation)
+                                                             .Include(x => x.IdCarroNavigation.IdFabricanteNavigation)
+                                                             .Include(x => x.IdCarroNavigation.IdCambioNavigation)
+                                                             .Include(x => x.IdCarroNavigation.IdCombustivelNavigation)
+                                                             .Include(x => x.IdCarroNavigation.IdModeloNavigation)
+                                                             .ToList();
+
+            return tests;
+        }
     }
 }

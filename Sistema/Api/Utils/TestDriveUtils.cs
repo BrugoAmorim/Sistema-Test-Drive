@@ -84,13 +84,19 @@ namespace Api.Utils
         public Models.Response.AgendamentoResponse TbTestDriveparaTestRes(Models.TbTestDrive test){
 
             Models.Response.AgendamentoResponse TestRes = new Models.Response.AgendamentoResponse();
-            TestRes.idagendamento = test.IdTestDrive;
-            TestRes.datatest = test.DtTestDrive;
-            TestRes.desmarcado = test.BlDesmarcado;
-            TestRes.realizado = test.BlRealizado;
-            TestRes.Carro = TbCarroparaCarroRes(test.IdCarroNavigation);
-            TestRes.Cliente = TbClienteparaClienteRes(test.IdClienteNavigation);
+            TestRes.codigo = 200;
+            TestRes.status = "Sucesso";
+            TestRes.mensagem = "Seu test drive foi marcado com sucesso";
 
+            Models.Response.AgendamentoResponse.Dados data = new Models.Response.AgendamentoResponse.Dados();
+            data.idagendamento = test.IdTestDrive;
+            data.datatest = test.DtTestDrive;
+            data.desmarcado = test.BlDesmarcado;
+            data.realizado = test.BlRealizado;
+            data.Carro = TbCarroparaCarroRes(test.IdCarroNavigation);
+            data.Cliente = TbClienteparaClienteRes(test.IdClienteNavigation);
+
+            TestRes.dados = data;
             return TestRes;
         }
 

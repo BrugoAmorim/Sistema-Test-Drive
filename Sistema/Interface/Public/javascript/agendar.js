@@ -1,5 +1,6 @@
 
 import { getlocalStorage } from "./localstorage.js";
+import { gerarMensagemAgendar, validarInputsAgendar, limparCamposAgendar } from "./utilsagendar.js";
 
 const SelecionarCarro = document.getElementById("selecionarCarro");
 const Cliente = document.getElementById('nome-cliente');
@@ -29,7 +30,34 @@ Agendar.onclick = async () => {
         idcarro: SelecionarCarro.value
     };
 
-    console.log(request)
+    validarInputsAgendar(Datatest, SelecionarCarro);
+
+    const chamaApi = await fetch(url, {
+        mode: 'cors',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(request)
+    })
+
+    const res = chamaApi.json();
+    res.then((data) => {
+
+        const mensagem = gerarMensagemAgendar(data);
+
+        if(data.codigo === 200){
+
+            swal(data.status, mensagem, "success");
+
+            const body = { Cliente, Endereco, Rg, Cpf, Cnh, Telefone, Celular, Datatest };
+            limparCamposAgendar(body);
+        }
+        else if(data.codigo === 400)
+            swal(data.status, data.mensagem, "error");
+        else
+            swal("Falha na requisição", "Erro desconhecido", "error");
+    })
 }
 
 const Voltar = document.getElementById("btn-voltar");

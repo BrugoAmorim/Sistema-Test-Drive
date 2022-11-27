@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendar</title>
     <link rel="stylesheet" href="../../Public/css/agendar.css">
+    <link rel="shortcut icon" href="../../Public/image/traffic-jam.ico" type="image/x-icon">
 </head>
 <body>
     <div class="container-master">
@@ -17,15 +18,15 @@
                         <input type="text" id="rg-cliente" class="entrada" placeholder="RG">
                     </div>
                     <div class="bloco-inputs">
-                        <input type="text" id="endereco-cliente" class="entrada" placeholder="Endereço">
+                        <input type="text" id="endereco-cliente" class="entrada" placeholder="Seu endereço">
                         <input type="text" id="cnh-cliente" class="entrada" placeholder="CNH">
                     </div>
                     <div class="bloco-inputs">
-                        <input type="text" id="telefone-cliente" class="entrada" placeholder="Telefone">
+                        <input type="tel" id="telefone-cliente" class="entrada" placeholder="Telefone">
                         <input type="text" id="cpf-cliente" class="entrada" placeholder="CPF">
                     </div>
                     <div class="bloco-inputs">
-                        <input type="text" id="celular-cliente" class="entrada" placeholder="Celular">
+                        <input type="tel" id="celular-cliente" class="entrada" placeholder="Celular">
                         <input type="datetime-local" id="datatest-cliente" class="entrada">
                     </div>
                     <div class="bloco-inputs">
@@ -33,7 +34,7 @@
                             <option selected>Modelos</option>
                         </select>
                         <select class="select" id="selecionarCarro">
-                            <option selected>Carros</option>
+                            <option selected value="Null">Carros</option>
                         </select>
                     </div>
                     <div class="container-agendar">
@@ -132,6 +133,7 @@
             </div>
         </footer>
     </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../Public/javascript/agendar.js" type="module"></script>
     <script src="../../Public/javascript/informacoescarro.js" type="module"></script>
 </body>

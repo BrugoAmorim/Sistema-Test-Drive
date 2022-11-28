@@ -33,6 +33,8 @@ namespace Api.Business
 
         public Models.TbTestDrive validarNovoAgendamento(Models.Request.AgendarRequest req, int iduser){
 
+            ValidarCamposBusiness TestDrive = new ValidarCamposBusiness();
+
             Database.UsuarioDatabase dbuser = new Database.UsuarioDatabase();
             Models.TbUsuario user = dbuser.buscarUsuarioId(iduser);
 
@@ -59,6 +61,8 @@ namespace Api.Business
                 
             if(req.celular.Length > 20)
                 throw new ArgumentException("Este celular é inválido");
+
+            TestDrive.ValidarData(req.datatest);
 
             Models.TbTestDrive agendamento = bd.SalvarAgendamento(req, iduser);
             return agendamento;

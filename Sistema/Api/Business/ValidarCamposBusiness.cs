@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+#nullable disable
 namespace Api.Business
 {
     public class ValidarCamposBusiness
     {
+        Database.TestDriveDatabase db = new Database.TestDriveDatabase();
 
         public bool ValidarEmail(string Email)
         {
@@ -49,5 +51,42 @@ namespace Api.Business
                 throw new ArgumentException("Utilize pelo menos um número na senha");
 
         }              
+    
+        public void ValidarData(DateTime data){
+
+            int dia = data.Day;
+            int mes = data.Month;
+            int ano = data.Year;
+            int hora = data.Hour;
+            int minuto = data.Minute;
+ 
+            if(data == DateTime.Now || data.Day == DateTime.Now.Day && data.Month == DateTime.Now.Month)
+                throw new ArgumentException("Não é possivel marcar um agendamento para hoje");
+
+            if(ano < DateTime.Now.Year)
+                throw new ArgumentException("Insira um ano de agendamento válido");
+
+            if(mes < DateTime.Now.Month)
+                throw new ArgumentException("Insira um mês de agendamento válido");
+
+            if(dia <= DateTime.Now.Day && mes <= DateTime.Now.Month)
+                throw new ArgumentException("Insira um dia de agendamento válido");
+
+            if(hora == 0 && minuto == 0)
+                throw new ArgumentException("Insira uma hora de agendamento válida");
+
+            if(hora < 8 || hora > 21)
+                throw new ArgumentException("Os horários disponiveis estão entre 8 e 21 horas");
+
+            if(minuto != 0 && minuto != 30)
+                throw new ArgumentException("Os intervalos entre os agendamentos são de no mínimo 30 minutos");
+
+            List<Models.TbTestDrive> tests = db.listartestdrives();
+            Models.TbTestDrive agen = tests.FirstOrDefault(x => x.DtTestDrive.Day == dia && x.DtTestDrive.Month == mes && x.DtTestDrive.Hour == hora && x.DtTestDrive.Minute == minuto);
+
+            if(agen != null)
+                throw new ArgumentException("Este horário já foi reservado, tente outro");
+
+        }
     }
 }

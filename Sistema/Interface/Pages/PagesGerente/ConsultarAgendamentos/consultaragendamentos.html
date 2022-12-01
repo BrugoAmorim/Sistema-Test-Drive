@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Agendamentos</title>
+    <link rel="shortcut icon" href="../../../Public/image/traffic-jam.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./consultaragendamentos.css">
+</head>
+<body>
+    <div class="container-master">
+        <div class="container-agendamentos">
+            <div class="bloco-master">
+                <div class="bloco-filtros">
+                    <div class="inputs-filtro">
+                        <div class="filtro">
+                            <input type="text" placeholder="Buscar por nome">
+                            <button class="btn-pesquisar">
+                                <img src="../../../Public/image/search.png" alt="pesquisar" height="35em">
+                            </button>
+                        </div>
+                        <div class="filtro">
+                            <input type="text" class="filtro" placeholder="Buscar por CPF">
+                            <button class="btn-pesquisar">
+                                <img src="../../../Public/image/search.png" alt="pesquisar" height="35em">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bloco-btn-voltar">
+                        <a href="#" class="btn-voltar">
+                            <img src="../../../Public/image/arrow-left.png" alt="voltar" height="40em">
+                        </a>
+                    </div>
+                </div>
+                <div class="bloco-eventos">
+                    <div class="agendamentos-concluidos">
+                        <button class="btn-concluidos">
+                            Agendamentos concluídos
+                        </button>
+                    </div>
+                    <div class="agendamentos-nao-realizados">
+                        <button class="btn-nao-concluidos">
+                            Agendamentos não concluídos
+                        </button>
+                    </div>
+                </div>
+                <div class="bloco-agendamentos">
+                    <div class="bloco-tabela">
+                        <table class="tabela-agendamentos">
+                            <thead>
+                                <tr class="coluna">
+                                    <th>Cliente</th>
+                                    <th>Carro</th>
+                                    <th>Data do teste</th>
+                                    <th>Realizado</th>
+                                    <th>Desmarcado</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="registros">
+                                    <td>Fabio</td>
+                                    <td>hb20</td>
+                                    <td>22/12 ás 15:30</td>
+                                    <td>false</t/d>
+                                    <td>false</td>
+                                    <td>
+                                        <a href="#">
+                                            Detalhes
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="creditos">
+                @BrugoAmorim
+            </div>
+            <div class="incorporacao">
+                &copy;TestCars Inc. 2022
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

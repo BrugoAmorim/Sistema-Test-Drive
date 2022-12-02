@@ -48,12 +48,12 @@ namespace Api.Controllers
             }
         }
 
-        [HttpGet("consultar/agendamentos")]
-        public ActionResult<List<Models.Response.AgendamentoResponse>> GetAgendamentos(){
+        [HttpGet("consultar/agendamentos/{idusuario}")]
+        public ActionResult<List<Models.Response.AgendamentoResponse>> GetAgendamentos(int idusuario){
 
             try{
 
-                List<Models.TbTestDrive> agendamentos = validacoes.validarGetAgendamentos();
+                List<Models.TbTestDrive> agendamentos = validacoes.validarGetAgendamentos(idusuario);
                 List<Models.Response.AgendamentoResponse> TestRes = conversor.TbListaTestparaTestRes(agendamentos);
 
                 return TestRes;

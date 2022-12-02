@@ -10,9 +10,11 @@ namespace Api.Business
     public class TestDriveBusiness
     {
         Database.TestDriveDatabase bd = new Database.TestDriveDatabase();
+        Database.UsuarioDatabase bduser = new Database.UsuarioDatabase();
         public List<Models.TbCarro> validarBuscarCarros(){
 
             List<Models.TbCarro> allCars = bd.listarcarros();
+
 
             if(allCars.Count == 0)
                 throw new ArgumentException("Nenhum carro foi encontrado");
@@ -68,14 +70,28 @@ namespace Api.Business
             return agendamento;
         }
 
-        public List<Models.TbTestDrive> validarGetAgendamentos(){
+        public List<Models.TbTestDrive> validarGetAgendamentos(int idusuario){
 
-            List<Models.TbTestDrive> testsdrives = bd.listartestdrives();
+            List<Models.TbTestDrive> testsdrives = bd.listartestdrives();            
 
             if(testsdrives.Count == 0)
                 throw new ArgumentException("Não foram encontrados nenhum registro");
 
-            return testsdrives; 
+            Models.TbUsuario usuario = bduser.buscarUsuarioId(idusuario);
+
+            if(usuario == null)
+                throw new ArgumentException("Usuário não identificado");
+
+            List<Models.TbTestDrive> userAgend = testsdrives.Where(x => x.IdClienteNavigation.IdUsuario == idusuario).ToList();
+
+            if(userAgend.Count == 0 && usuario.IdNivelAcesso != 1)
+                throw new ArgumentException("Você ainda não fez nenhum agendamento");
+
+            if(usuario.IdNivelAcesso != 1)
+                return userAgend;
+                
+            else
+                return testsdrives;
         }
     }
 }

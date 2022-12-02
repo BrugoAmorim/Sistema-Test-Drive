@@ -44,10 +44,9 @@ Agendar.onclick = async () => {
     const res = chamaApi.json();
     res.then((data) => {
 
-        const mensagem = gerarMensagemAgendar(data);
-
         if(data.codigo === 200){
 
+            const mensagem = gerarMensagemAgendar(data);
             swal(data.status, mensagem, "success");
 
             const body = { Cliente, Endereco, Rg, Cpf, Cnh, Telefone, Celular, Datatest };

@@ -1,4 +1,19 @@
 
+import { getlocalStorage } from "./localstorage.js";
+
+export const listarAgendamentos = async () => {
+    
+    const url = "http://localhost:5000/TestDrive/consultar/agendamentos/" + getlocalStorage().id;
+
+    const chamaapi = await fetch(url, {
+        mode: 'cors',
+        method: 'GET'
+    });
+
+    let res = chamaapi.json();
+    return res;
+}
+
 export const criaRegistro = (registro) => {
 
     const Tr = document.createElement('tr');
@@ -37,10 +52,9 @@ export const criaRegistro = (registro) => {
     return Tr;
 }
 
-const formatarData = (datatest) => {
+export const formatarData = (datatest) => {
 
     const data = new Date(datatest);
-    console.log(datatest)
 
     const hora = data.getHours();
     const minuto = data.getMinutes();
@@ -51,4 +65,20 @@ const formatarData = (datatest) => {
         mes = "0" + mes;
 
     return hora + ":" + minuto + " ás " + dia + "/" + mes;
+}
+
+export const AgendConcluidos = async () => {
+    
+    const agendamentos = await listarAgendamentos();
+    const concluidos = agendamentos.filter(x => x.dados.realizado == true && x.dados.desmarcado == false);
+
+    return concluidos;
+}
+
+export const AgendNaoConcluidos = async () => {
+
+    const agendamentos = await listarAgendamentos();
+    const naoconcluidos = agendamentos.filter(x => x.dados.realizado == false && x.dados.desmarcado == true || x.dados.realizado == false && x.dados.desmarcado == false);
+
+    return naoconcluidos;
 }

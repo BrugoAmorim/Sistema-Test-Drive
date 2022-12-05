@@ -64,7 +64,7 @@ export const formatarData = (datatest) => {
     if(mes < 10)
         mes = "0" + mes;
 
-    return hora + ":" + minuto + " ás " + dia + "/" + mes;
+    return dia + "/" + mes + " ás " + hora + ":" + minuto;
 }
 
 export const AgendConcluidos = async () => {

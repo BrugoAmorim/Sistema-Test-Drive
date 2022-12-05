@@ -24,13 +24,13 @@
             <div class="container-agendamentos">
                 <div class="container-filtros">
                     <div class="bloco-filtros">
-                        <button class="btn-concluidos">Agendamentos concluídos</button>
-                        <button class="btn-nao-concluidos">Agendamentos não realizados</button>
+                        <button class="btn-concluidos" id="btn-concluidos">Agendamentos concluídos</button>
+                        <button class="btn-nao-concluidos" id="btn-nao-concluidos">Agendamentos não realizados</button>
                     </div>
                     <div class="bloco-btn-voltar">
-                        <button class="btn-voltar">
+                        <a href="../Home/homeusuario.html" class="btn-voltar">
                             <img src="../../../Public/image/arrow-left.png" alt="clique para voltar" height="50em">
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div class="bloco-agendamentos">
@@ -44,18 +44,20 @@
                                 <th></th>
                             </tr>
                         </thead>    
-                        <tbody class="registros">
-                            <tr>
-                                <td>hb20</td>
-                                <td>02/02/2022</td>
-                                <td>Sim</td>
-                                <td>Nao</td>
-                                <td>
-                                    <a href="#">
-                                        detalhes
-                                    </a>
-                                </td>
-                            </tr>
+                        <tbody id="tbody">
+                            <!-- 
+                                <tr class="registros">
+                                    <td>hb20</td>
+                                    <td>02/02/2022</td>
+                                    <td>Sim</td>
+                                    <td>Nao</td>
+                                    <td>
+                                        <a href="#">
+                                            detalhes
+                                        </a>
+                                    </td>
+                                </tr> 
+                            -->
                         </tbody>
                     </table>
                 </div>
@@ -70,5 +72,7 @@
             </div>
         </footer>
     </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./consultaragendamentos.js" type="module"></script>
 </body>
 </html>

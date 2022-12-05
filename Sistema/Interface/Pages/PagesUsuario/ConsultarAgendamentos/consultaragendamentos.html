@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar meus agendamentos</title>
+    <link rel="stylesheet" href="./consultaragendamentos.css">
+    <link rel="shortcut icon" href="../../../Public/image/traffic-jam.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container-master">
+        <div class="cabecalho">
+            <div class="container-usuario">
+                <button class="meu-perfil">
+                    <img src="../../../Public/image/usuario.png" alt="img-usuario" height="70em">
+                </button>
+                <h1 id="nm-user">
+                    <!-- Nome do usuario -->
+                </h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="container-agendamentos">
+                <div class="container-filtros">
+                    <div class="bloco-filtros">
+                        <button class="btn-concluidos">Agendamentos concluídos</button>
+                        <button class="btn-nao-concluidos">Agendamentos não realizados</button>
+                    </div>
+                    <div class="bloco-btn-voltar">
+                        <button class="btn-voltar">
+                            <img src="../../../Public/image/arrow-left.png" alt="clique para voltar" height="50em">
+                        </button>
+                    </div>
+                </div>
+                <div class="bloco-agendamentos">
+                    <table class="table">
+                        <thead class="coluna">
+                            <tr>
+                                <th>Carro</th>
+                                <th>Data do teste</th>
+                                <th>Realizado</th>
+                                <th>Desmarcado</th>
+                                <th></th>
+                            </tr>
+                        </thead>    
+                        <tbody class="registros">
+                            <tr>
+                                <td>hb20</td>
+                                <td>02/02/2022</td>
+                                <td>Sim</td>
+                                <td>Nao</td>
+                                <td>
+                                    <a href="#">
+                                        detalhes
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="desenvolvedor">
+                @BrugoAmorim
+            </div>
+            <div class="incorporacao">
+                &copy;TestCars Inc. 2022
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

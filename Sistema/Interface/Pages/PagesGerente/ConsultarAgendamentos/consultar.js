@@ -40,3 +40,26 @@ Naoconcluido.onclick = async () => {
         tbody.appendChild(registro);
     })
 }
+
+const PesquisarNome = document.getElementById("btn-pesquisar-nome");
+PesquisarNome.onclick = async () => {
+
+    const agendamentos = await listarAgendamentos();
+    
+    const Nome = document.getElementById("inp-nome").value;
+    const user = agendamentos.filter(x => x.dados.cliente.cliente.toLowerCase() == Nome.toLowerCase());
+
+    if(user.length == 0)
+        swal("Este cliente não foi encontrado", '', "error");
+    else{
+
+        while(tbody.firstChild)
+            tbody.removeChild(tbody.firstChild);
+
+        user.map(item => {
+
+            const registro = criaRegistro(item.dados);
+            tbody.appendChild(registro);
+        })
+    }
+}

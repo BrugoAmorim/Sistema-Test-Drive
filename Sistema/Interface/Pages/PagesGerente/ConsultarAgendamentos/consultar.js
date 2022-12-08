@@ -63,3 +63,31 @@ PesquisarNome.onclick = async () => {
         })
     }
 }
+
+const PesquisarCpf = document.getElementById("btn-pesquisar-cpf");
+PesquisarCpf.onclick = async () => {
+
+    const cpf = document.getElementById("inp-cpf").value;
+    const filtrarCpf = cpf.replaceAll(".", "").replaceAll("-", "");
+
+    const Agendamentos = await listarAgendamentos();
+    const user = Agendamentos.filter(x => removeMascara(x.dados.cliente.cpf) == filtrarCpf);
+
+    if(user.length === 0)
+        swal("Não foram encontrados registros com esse CPF", "", "error");
+    else{
+        
+        while(tbody.firstChild)
+        tbody.removeChild(tbody.firstChild);
+
+        user.map(item => {
+
+            const registro = criaRegistro(item.dados);
+            tbody.appendChild(registro);
+        })
+    }
+}
+
+const removeMascara = (req) => {
+    return req.replaceAll(".", "").replaceAll("-", "");
+}

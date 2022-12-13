@@ -1,0 +1,239 @@
+body{
+    height: 100vh;
+    margin: 0%;
+    padding: 0%;
+}
+
+.container-master{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecalho{
+    height: 15%;
+    background-color: #ffc222;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1{
+    margin-left: 2%;
+}
+
+.container{
+    height: 70%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: whitesmoke;
+}
+
+footer{
+    height: 15%;
+    background-color: black;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.incorporacao, .desenvolvedor{
+    height: 60%;
+    width: 20%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    color: white;
+    font-size: 1.3em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.container-usuario{
+    height: 80%;
+    width: 30%;
+    padding-left: 5%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    font-size: 1.2em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.container-voltar{
+    height: 80%;
+    width: 15%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.meu-perfil{
+    cursor: pointer;
+
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-voltar{
+    height: 90%;
+    width: 25%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+    background-color: transparent;
+    
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-voltar:hover{
+    transition: 0.3s;
+    background-color: rgba(0, 0, 0, 0.123);
+}
+
+.btn-voltar:active{
+    transform: scale(0.96);
+}
+
+.sub-container{
+    height: 100%;
+    width: 60%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+}
+
+.container-guia{
+    height: 20%;
+    width: 100%;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+}
+
+.container-eventos{
+    height: 75%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+}
+
+.bloco-texto{
+    height: 100%;
+        
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    font-size: 1.2em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.bloco-eventos{
+    height: 75%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bloco-mensagem{
+    height: 25%;
+
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    font-size: 1.2em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.container-buttons{
+    height: 100%;
+    width: 60%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.bloco-button{
+    height: 20%;
+    width: 70%;
+
+    display: flex;
+    align-items: center;
+}
+
+.evento{
+    height: 90%;
+    width: 100%;
+
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 1.3em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+    border-radius: 6px;
+    background-color: #ffc222;
+}
+
+.evento:hover{
+    transition: 0.3s;
+    background-color: #e9b020;
+}
+
+.evento:active{
+    transform: scale(0.96);
+}

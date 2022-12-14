@@ -65,5 +65,41 @@ namespace Api.Controllers
                 );
             }
         }
+
+        [HttpPut("agendamento/marcarRealizado/{idagendamento}")]
+        public ActionResult<Models.Response.AgendamentoResponse> MarcarcomoFeito(int idagendamento){
+
+            try{
+
+                Models.TbTestDrive Test = validacoes.validarMarcarAgendamentoFeito(idagendamento);
+                Models.Response.AgendamentoResponse caixote = conversor.TbTestDriveparaTestRes(Test);
+
+                return caixote;
+            }
+            catch(System.Exception ex){
+
+                return new BadRequestObjectResult(
+                    new Models.ErrorResponse(ex.Message, 400)
+                );
+            }
+        }
+
+        [HttpPut("agendamento/marcarNaoRealizado/{idagendamento}")]
+        public ActionResult<Models.Response.AgendamentoResponse> MarcarcomoNaoFeito(int idagendamento){
+
+            try{
+
+                Models.TbTestDrive Agendamento = validacoes.validarMarcarAgendamentoNaoFeito(idagendamento);
+                Models.Response.AgendamentoResponse caixoteRes = conversor.TbTestDriveparaTestRes(Agendamento);
+
+                return caixoteRes;
+            }
+            catch(System.Exception ex){
+
+                return new BadRequestObjectResult(
+                    new Models.ErrorResponse(ex.Message, 400)
+                );
+            }
+        }
     }
 }

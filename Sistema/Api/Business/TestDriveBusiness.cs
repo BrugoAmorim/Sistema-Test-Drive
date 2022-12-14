@@ -93,5 +93,43 @@ namespace Api.Business
             else
                 return testsdrives;
         }
+
+        public Models.TbTestDrive validarMarcarAgendamentoFeito(int idagendamento){
+
+            Models.TbTestDrive Test = bd.buscarAgendamentoId(idagendamento);
+
+            if(idagendamento <= 0)
+                throw new ArgumentException("Agendamento inválido");
+
+            if(Test == null)
+                throw new ArgumentException("Este agendamento não foi encontrado");
+
+            if(Test.BlDesmarcado == true)
+                throw new ArgumentException("Você não pode marcar como feito um test drive que foi desmarcado");
+
+            if(Test.BlRealizado == true)
+                throw new ArgumentException("Este agendamento já foi marcado como feito");
+
+            return bd.AgendamentoFeito(Test);
+        }
+
+        public Models.TbTestDrive validarMarcarAgendamentoNaoFeito(int idagendamento){
+            
+            Models.TbTestDrive Test = bd.buscarAgendamentoId(idagendamento);
+
+            if(idagendamento <= 0)
+                throw new ArgumentException("Agendamento inválido");
+
+            if(Test == null)
+                throw new ArgumentException("Este agendamento não foi encontrado");
+
+            if(Test.BlDesmarcado == true)
+                throw new ArgumentException("Este agendamento foi desmarcado");
+
+            if(DateTime.Now > Test.DtTestDrive)
+                throw new ArgumentException("Você não pode marcar como não feito um agendamento fora da data estabelecida");
+
+            return bd.AgendamentoNaoFeito(Test);
+        }
     }
 }

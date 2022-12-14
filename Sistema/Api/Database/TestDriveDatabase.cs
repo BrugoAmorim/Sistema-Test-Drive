@@ -64,5 +64,33 @@ namespace Api.Database
 
             return tests;
         }
+
+        public Models.TbTestDrive buscarAgendamentoId(int id){
+
+            Models.TbTestDrive test = ctx.TbTestDrives.Include(x => x.IdClienteNavigation)
+                                                      .Include(x => x.IdCarroNavigation)
+                                                      .Include(x => x.IdCarroNavigation.IdFabricanteNavigation)
+                                                      .Include(x => x.IdCarroNavigation.IdCambioNavigation)
+                                                      .Include(x => x.IdCarroNavigation.IdCombustivelNavigation)
+                                                      .Include(x => x.IdCarroNavigation.IdModeloNavigation)
+                                                      .FirstOrDefault(x => x.IdTestDrive == id);
+            return test;
+        }
+
+        public Models.TbTestDrive AgendamentoFeito(Models.TbTestDrive Test){
+        
+            Test.BlRealizado = true;
+
+            ctx.SaveChanges();
+            return Test;
+        }
+
+        public Models.TbTestDrive AgendamentoNaoFeito(Models.TbTestDrive Test){
+
+            Test.BlRealizado = false;
+
+            ctx.SaveChanges();
+            return Test;
+        }
     }
 }

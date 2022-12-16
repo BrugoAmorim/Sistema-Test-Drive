@@ -101,5 +101,23 @@ namespace Api.Controllers
                 );
             }
         }
+
+        [HttpGet("agendamento/detalhes/{idagendamento}")]
+        public ActionResult<Models.Response.AgendamentoResponse> BuscarAgendamento(int idagendamento){
+
+            try{
+
+                Models.TbTestDrive Agendamento = validacoes.validarBuscarAgendamento(idagendamento);
+                Models.Response.AgendamentoResponse caixoteRes = conversor.TbTestDriveparaTestRes(Agendamento);
+
+                return caixoteRes;                
+            }
+            catch(System.Exception ex){
+                
+                return new BadRequestObjectResult(
+                    new Models.ErrorResponse(ex.Message, 400)
+                );
+            }
+        }
     }
 }

@@ -131,5 +131,18 @@ namespace Api.Business
 
             return bd.AgendamentoNaoFeito(Test);
         }
+
+        public Models.TbTestDrive validarBuscarAgendamento(int idagendamento){
+            
+            Models.TbTestDrive Test = bd.buscarAgendamentoId(idagendamento);
+
+            if(idagendamento <= 0)
+                throw new ArgumentException("Agendamento inválido");
+
+            if(Test == null)
+                throw new ArgumentException("Este agendamento não foi encontrado");
+        
+            return Test;
+        }
     }
 }

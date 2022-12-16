@@ -18,27 +18,51 @@
                             <h1>Detalhes:</h1>
                         </div>
                         <div class="container-btn-voltar">
-                            <a href="#" class="btn-voltar">
+                            <a href="../ConsultarAgendamentos/consultaragendamentos.html" class="btn-voltar">
                                 <img src="../../../Public/image/arrow-left.png" alt="voltar" height="40em">
                             </a>
                         </div>
                     </div>
                     <div class="container-informacoes">
                         <div class="container-inputs">
-                            <input type="text" placeholder="Nome Completo" readonly>
-                            <input type="text" placeholder="RG" readonly>
+                            <div class="bloco-input">
+                                <label for="inp-nome">Nome Completo:</label>
+                                <input type="text" id="inp-nome" placeholder="Nome Completo" readonly>
+                            </div>
+                            <div class="bloco-input">
+                                <label for="inp-rg">RG:</label>
+                                <input type="text" id="inp-rg" placeholder="RG" readonly>
+                            </div>
                         </div>
                         <div class="container-inputs">
-                            <input type="text" placeholder="Endereço" readonly>
-                            <input type="text" placeholder="CNH" readonly>
+                            <div class="bloco-input">
+                                <label for="inp-endereco">Endereço:</label>
+                                <input type="text" id="inp-endereco" placeholder="Endereço" readonly>
+                            </div>
+                            <div class="bloco-input">
+                                <label for="inp-cnh">CNH:</label>
+                                <input type="text" id="inp-cnh" placeholder="CNH" readonly>
+                            </div>
                         </div>
                         <div class="container-inputs">
-                            <input type="text" placeholder="Telefone" readonly>
-                            <input type="text" placeholder="CPF" readonly>
+                            <div class="bloco-input">
+                                <label for="inp-telefone">Telefone:</label>
+                                <input type="text" id="inp-telefone" placeholder="Telefone" readonly>
+                            </div>
+                            <div class="bloco-input">
+                                <label for="inp-cpf">CPF:</label>
+                                <input type="text" id="inp-cpf" placeholder="CPF" readonly>
+                            </div>
                         </div>
                         <div class="container-inputs">
-                            <input type="text" placeholder="Celular" readonly>
-                            <input type="datetime-local" readonly>
+                            <div class="bloco-input">
+                                <label for="inp-celular">Celular:</label>
+                                <input type="text" id="inp-celular" placeholder="Celular" readonly>
+                            </div>
+                            <div class="bloco-input">
+                                <label for="inp-datatest">Data do Test Drive:</label>
+                                <input type="datetime-local" id="inp-datatest" readonly>
+                            </div>
                         </div>
                     </div>
                     <div class="container-eventos">
@@ -68,35 +92,35 @@
                     <div class="carro">
                         <div class="bloco-info-carro">
                             <strong>Modelo:</strong>
-                            <span>****</span>
+                            <span id="txt-modelo"></span>
                         </div>
                         <div class="bloco-info-carro">
                             <strong>Fabricante:</strong>
-                            <span>****</span>
+                            <span id="txt-fabricante"></span>
                         </div>
                         <div class="bloco-info-carro">
                             <strong>Potência:</strong>
-                            <span>****</span>
+                            <span id="txt-potencia"></span>
                         </div>
                         <div class="bloco-info-carro">
                             <strong>Câmbio:</strong>
-                            <span>****</span>
+                            <span id="txt-cambio"></span>
                         </div>
                         <div class="bloco-info-carro">
                             <strong>Combustível:</strong>
-                            <span>****</span>
+                            <span id="txt-combustivel"></span>
                         </div>
                         <div class="bloco-info-carro">
                             <strong>Ano Modelo:</strong>
-                            <span>****</span>
+                            <span id="txt-anomodelo"></span>
                         </div>
                         <div class="bloco-info-carro">
                             <strong>Ano Fabricação:</strong>
-                            <span>****</span>
+                            <span id="txt-anofabricacao"></span>
                         </div>
                         <div class="bloco-info-carro">
                             <strong>Preço:</strong>
-                            <span>****</span>
+                            <span id="txt-preco"></span>
                         </div>
                     </div>
                     <div class="container-desmarcar">
@@ -114,5 +138,7 @@
             </div>
         </footer>
     </div>
+    <script src="./detalhestestdrive.js" type="module"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </html>

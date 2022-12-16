@@ -165,7 +165,7 @@ footer{
 }
 
 .container-inputs{
-    height: 20%;
+    height: 23%;
     width: 100%;
 
     display: flex;
@@ -174,9 +174,19 @@ footer{
     justify-content: space-between;
 }
 
-.container-inputs input{ 
-    height: 55%;
-    width: 45%;
+.bloco-input{
+    height: 100%;
+    width: 48%;
+
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bloco-input input{ 
+    height: 50%;
+    width: 95%;
     padding-left: 2%;
 
     border: none;
@@ -187,6 +197,11 @@ footer{
     font-size: 1.2em;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: whitesmoke;
+}
+
+.bloco-input label{
+    font-size: 1.3em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .guia{
@@ -281,7 +296,7 @@ footer{
 }
 
 .bloco-info-carro span{
-    margin-left: 2%;
+    margin-left: 1%;
 }
 
 .btn-desmarcar{

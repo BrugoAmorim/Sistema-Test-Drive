@@ -1,8 +1,9 @@
 
 window.onload = async () => {
 
-    const url = "http://localhost:5000/TestDrive/agendamento/detalhes/" + 40;
+    const id = localStorage.getItem("IDagend");
 
+    const url = "http://localhost:5000/TestDrive/agendamento/detalhes/" + id;
     const chamaapi = await fetch(url, {
         mode: 'cors',
         method: 'GET'
@@ -60,4 +61,9 @@ const AdicionarInformacoesCarro = (carro) => {
     AnoModelo.appendChild(document.createTextNode(carro.anomodelo));
     AnoFabricacao.appendChild(document.createTextNode(carro.anofabricacao));
     Preco.appendChild(document.createTextNode("R$ " + carro.preco));
+}
+
+const Voltar = document.getElementById("btn-voltar");
+Voltar.onclick = () => {
+    localStorage.removeItem("IDagend")
 }

@@ -59,6 +59,7 @@ PesquisarNome.onclick = async () => {
         user.map(item => {
 
             const registro = criaRegistro(item.dados);
+            
             tbody.appendChild(registro);
         })
     }

@@ -37,9 +37,12 @@ export const criaRegistro = (registro) => {
 
     const Detalhes = document.createElement('td');
     const link = document.createElement('a');
+    link.href = RedirecionarUsuario();
+    link.onclick = () => {
+        localStorage.setItem("IDagend", registro.idagendamento);
+    }
 
     link.appendChild(document.createTextNode('detalhes'));
-    link.href = "#";
     Detalhes.appendChild(link);
 
     Tr.appendChild(Nome);
@@ -81,4 +84,17 @@ export const AgendNaoConcluidos = async () => {
     const naoconcluidos = agendamentos.filter(x => x.dados.realizado == false && x.dados.desmarcado == true || x.dados.realizado == false && x.dados.desmarcado == false);
 
     return naoconcluidos;
+}
+
+const RedirecionarUsuario = (idagendamento) => {
+
+    const nivel = getlocalStorage().nvlacesso;
+
+    if(nivel == "Gerente"){
+        return "../DetalhesTestDrive/detalhestestdrive.html";
+    }
+    else if(nivel == "Cliente"){
+        return "../Home/homeusuario.html";
+        // Preciso alterar a rota 
+    }
 }

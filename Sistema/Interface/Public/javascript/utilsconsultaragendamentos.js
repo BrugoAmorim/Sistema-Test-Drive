@@ -94,7 +94,6 @@ const RedirecionarUsuario = (idagendamento) => {
         return "../DetalhesTestDrive/detalhestestdrive.html";
     }
     else if(nivel == "Cliente"){
-        return "../Home/homeusuario.html";
-        // Preciso alterar a rota 
+        return "../DetalhesTestDrive/detalhestestdrive.html";
     }
 }

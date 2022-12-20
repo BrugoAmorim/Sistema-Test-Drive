@@ -26,7 +26,7 @@
                             <h1>Detalhes:</h1>
                         </div>
                         <div class="container-voltar">
-                            <a href="#" class="btn-voltar">
+                            <a href="../ConsultarAgendamentos/consultaragendamentos.html" class="btn-voltar">
                                 <img src="../../../Public/image/arrow-left.png" alt="voltar" height="40em">
                             </a>
                         </div>
@@ -38,38 +38,38 @@
                                 <input type="text" id="nomeusuario" placeholder="Nome e sobrenome">
                             </div>
                             <div class="container-input">
-                                <label for="nomeusuario">RG:</label>
-                                <input type="text" id="nomeusuario" placeholder="N° do RG">
+                                <label for="rgusuario">RG:</label>
+                                <input type="text" id="rgusuario" placeholder="N° do RG">
                             </div>
                         </div>
                         <div class="bloco-inputs">
                             <div class="container-input">
-                                <label for="nomeusuario">Endereço:</label>
-                                <input type="text" id="nomeusuario" placeholder="Endereço">
+                                <label for="enderecousuario">Endereço:</label>
+                                <input type="text" id="enderecousuario" placeholder="Endereço">
                             </div>
                             <div class="container-input">
-                                <label for="nomeusuario">CNH:</label>
-                                <input type="text" id="nomeusuario" placeholder="CNH">
-                            </div>
-                        </div>
-                        <div class="bloco-inputs">
-                            <div class="container-input">
-                                <label for="nomeusuario">Telefone:</label>
-                                <input type="text" id="nomeusuario" placeholder="N° do Telefone">
-                            </div>
-                            <div class="container-input">
-                                <label for="nomeusuario">CPF:</label>
-                                <input type="text" id="nomeusuario" placeholder="N° do CPF">
+                                <label for="cnhusuario">CNH:</label>
+                                <input type="text" id="cnhusuario" placeholder="CNH">
                             </div>
                         </div>
                         <div class="bloco-inputs">
                             <div class="container-input">
-                                <label for="nomeusuario">Celular:</label>
-                                <input type="text" id="nomeusuario" placeholder="N° do Celular">
+                                <label for="telusuario">Telefone:</label>
+                                <input type="text" id="telusuario" placeholder="N° do Telefone">
                             </div>
                             <div class="container-input">
-                                <label for="nomeusuario">Data do Test Drive:</label>
-                                <input type="datetime-local" id="nomeusuario">
+                                <label for="cpfusuario">CPF:</label>
+                                <input type="text" id="cpfusuario" placeholder="N° do CPF">
+                            </div>
+                        </div>
+                        <div class="bloco-inputs">
+                            <div class="container-input">
+                                <label for="cellusuario">Celular:</label>
+                                <input type="text" id="cellusuario" placeholder="N° do Celular">
+                            </div>
+                            <div class="container-input">
+                                <label for="datatest">Data do Test Drive:</label>
+                                <input type="datetime-local" id="datatest">
                             </div>
                         </div>
                     </div>
@@ -86,40 +86,40 @@
             <div class="container-info-carro">
                 <div class="bloco-info-carro">
                     <div class="info-carro">
-                        <h1>Informações do Carro:</h1>
+                        <h1 id="NomeCarro"></h1>
                     </div>
                     <div class="detalhes-carro">
                         <div class="informacoes">
                             <strong>Modelo:</strong>
-                            <span>****</span>
+                            <span id="modelo"></span>
                         </div>
                         <div class="informacoes">
                             <strong>Fabricante:</strong>
-                            <span>****</span>
+                            <span id="fabricante"></span>
                         </div>
                         <div class="informacoes">
                             <strong>Potência:</strong>
-                            <span>****</span>
+                            <span id="potencia"></span>
                         </div>
                         <div class="informacoes">
                             <strong>Câmbio:</strong>
-                            <span>****</span>
+                            <span id="cambio"></span>
                         </div>
                         <div class="informacoes">
                             <strong>Combustível:</strong>
-                            <span>****</span>
+                            <span id="combustivel"></span>
                         </div>
                         <div class="informacoes">
                             <strong>Ano Modelo:</strong>
-                            <span>****</span>
+                            <span id="anomodelo"></span>
                         </div>
                         <div class="informacoes">
                             <strong>Ano Fabrição:</strong>
-                            <span>****</span>
+                            <span id="anofabricacao"></span>
                         </div>
                         <div class="informacoes">
                             <strong>Preço:</strong>
-                            <span>****</span>
+                            <span id="preco"></span>
                         </div>
                     </div>
                     <div class="container-desmarcar">
@@ -137,5 +137,6 @@
             </div>
         </footer>
     </div>
+    <script src="./detalhestestdrive.js" type="module"></script>
 </body>
 </html>

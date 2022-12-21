@@ -121,12 +121,20 @@ namespace Api.Controllers
         }
 
         [HttpPut("agendamento/atualizarCliente/{iduser}/{idclient}")]        
-        public Models.Response.ClienteCompostoResponse atualizarDadosCliente(Models.Request.ClienteRequest clientereq, int iduser, int idclient){
+        public ActionResult<Models.Response.ClienteCompostoResponse> atualizarDadosCliente(Models.Request.ClienteRequest clientereq, int iduser, int idclient){
 
-            Models.TbCliente atualizarCliente = validacoesCliente.validarDadosCliente(clientereq, iduser, idclient);
-            Models.Response.ClienteCompostoResponse res = conversor.TbClienteparaClienteCompRes(atualizarCliente);
+            try{
+                Models.TbCliente atualizarCliente = validacoesCliente.validarDadosCliente(clientereq, iduser, idclient);
+                Models.Response.ClienteCompostoResponse res = conversor.TbClienteparaClienteCompRes(atualizarCliente);
 
-            return res;
+                return res;
+            }
+            catch(System.Exception ex){
+
+                return new BadRequestObjectResult(
+                    new Models.ErrorResponse(ex.Message, 400)
+                );
+            }
         }
     }
 }

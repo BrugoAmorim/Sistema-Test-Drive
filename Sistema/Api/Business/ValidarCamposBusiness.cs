@@ -88,5 +88,6 @@ namespace Api.Business
                 throw new ArgumentException("Este horário já foi reservado, tente outro");
 
         }
+    
     }
 }

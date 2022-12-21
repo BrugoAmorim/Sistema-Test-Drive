@@ -19,7 +19,7 @@ namespace Api.Models.Response
             public DateTime datatest { get; set; }
             public bool desmarcado { get; set; }
             public bool realizado { get; set; }
-            public Models.Response.ClienteResponse Cliente { get; set; }
+            public Models.Response.ClienteSimpleResponse Cliente { get; set; }
             public Models.Response.CarrosResponse Carro { get; set; }
         }
     }

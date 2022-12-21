@@ -10,8 +10,8 @@ namespace Api.Controllers
     [Route("[controller]")]
     public class TestDriveController : ControllerBase
     {
-
         Business.TestDriveBusiness validacoes = new Business.TestDriveBusiness();
+        Business.ClienteBusiness validacoesCliente = new Business.ClienteBusiness();
         Utils.TestDriveUtils conversor = new Utils.TestDriveUtils();
 
         [HttpGet("consultar/carros")]
@@ -118,6 +118,15 @@ namespace Api.Controllers
                     new Models.ErrorResponse(ex.Message, 400)
                 );
             }
+        }
+
+        [HttpPut("agendamento/atualizarCliente/{iduser}/{idclient}")]        
+        public Models.Response.ClienteCompostoResponse atualizarDadosCliente(Models.Request.ClienteRequest clientereq, int iduser, int idclient){
+
+            Models.TbCliente atualizarCliente = validacoesCliente.validarDadosCliente(clientereq, iduser, idclient);
+            Models.Response.ClienteCompostoResponse res = conversor.TbClienteparaClienteCompRes(atualizarCliente);
+
+            return res;
         }
     }
 }

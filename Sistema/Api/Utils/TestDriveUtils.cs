@@ -53,9 +53,31 @@ namespace Api.Utils
             return dadoscliente;
         }
 
-        public Models.Response.ClienteResponse TbClienteparaClienteRes(Models.TbCliente cliente){
+        public Models.Response.ClienteCompostoResponse TbClienteparaClienteCompRes(Models.TbCliente cliente){
 
-            Models.Response.ClienteResponse infocliente = new Models.Response.ClienteResponse();
+            Models.Response.ClienteCompostoResponse clienteres = new Models.Response.ClienteCompostoResponse();
+            clienteres.codigo = 200;
+            clienteres.status = "sucesso";
+            clienteres.mensagem = "Ação realizada com êxito";
+
+            Models.Response.ClienteCompostoResponse.Dados infocliente = new Models.Response.ClienteCompostoResponse.Dados();
+            infocliente.idcliente = cliente.IdCliente;
+            infocliente.cliente = cliente.NmCliente;
+            infocliente.endereco = cliente.DsEndereco;
+            infocliente.rg = cliente.NrRg;
+            infocliente.cpf = cliente.NrCpf;
+            infocliente.cnh = cliente.NrCnh;
+            infocliente.telefone = cliente.NrTelefone;
+            infocliente.celular = cliente.NrCelular;
+            infocliente.idusuario = cliente.IdUsuario;
+
+            clienteres.dados = infocliente;
+            return clienteres;
+        }
+
+        public Models.Response.ClienteSimpleResponse TbClienteparaClienteSimpRes(Models.TbCliente cliente){
+
+            Models.Response.ClienteSimpleResponse infocliente = new Models.Response.ClienteSimpleResponse();
             infocliente.idcliente = cliente.IdCliente;
             infocliente.cliente = cliente.NmCliente;
             infocliente.endereco = cliente.DsEndereco;
@@ -94,7 +116,7 @@ namespace Api.Utils
             data.desmarcado = test.BlDesmarcado;
             data.realizado = test.BlRealizado;
             data.Carro = TbCarroparaCarroRes(test.IdCarroNavigation);
-            data.Cliente = TbClienteparaClienteRes(test.IdClienteNavigation);
+            data.Cliente = TbClienteparaClienteSimpRes(test.IdClienteNavigation);
 
             TestRes.dados = data;
             return TestRes;

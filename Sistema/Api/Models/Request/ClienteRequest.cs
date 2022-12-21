@@ -4,19 +4,16 @@ using System.Linq;
 using System.Threading.Tasks;
 
 #nullable disable
-
-namespace Api.Models.Response
+namespace Api.Models.Request
 {
-    public class ClienteResponse
+    public class ClienteRequest
     {
-        public int idcliente { get; set; }
-        public string cliente { get; set; }
+        public string nomecliente { get; set; }
         public string endereco { get; set; }
         public string rg { get; set; }
         public string cpf { get; set; }
         public string cnh { get; set; }
         public string telefone { get; set; }
         public string celular { get; set; }
-        public int idusuario { get; set; }
     }
 }

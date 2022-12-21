@@ -15,7 +15,7 @@
                 <button class="btn-perfil">
                     <img src="../../../Public/image/usuario.png" alt="icone usuario" height="75em">
                 </button>
-                <h1 style="margin-left: 2%;">Bruno gomes</h1>
+                <h1 style="margin-left: 2%;" id="nm-user"></h1>
             </div>
         </div>
         <div class="container">
@@ -69,7 +69,7 @@
                             </div>
                             <div class="container-input">
                                 <label for="datatest">Data do Test Drive:</label>
-                                <input type="datetime-local" id="datatest">
+                                <input type="datetime-local" id="datatest" style="background-color: whitesmoke;" readonly>
                             </div>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                             <p>Confira aqui suas informações sobre o próximo test drive</p>
                         </div>
                         <div class="container-evento">
-                            <button class="btn-salvar">Salvar Alterações</button>
+                            <button class="btn-salvar" id="btn-salvar-alteracoes">Salvar Alterações</button>
                         </div>
                     </div>
                 </div>
@@ -137,6 +137,7 @@
             </div>
         </footer>
     </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./detalhestestdrive.js" type="module"></script>
 </body>
 </html>

@@ -144,5 +144,29 @@ namespace Api.Business
         
             return Test;
         }
+    
+        public Models.TbTestDrive validarDesmarcarTestDrive(int idusuario, int idcliente, int idtest){
+
+            ClienteBusiness validacoesusuario = new ClienteBusiness();
+            Models.TbUsuario user = validacoesusuario.validarUsuario(idusuario);
+            Models.TbCliente client = validacoesusuario.validarCliente(idcliente);
+
+            if(client.IdUsuario != user.IdUsuario && user.IdUsuario != 1)
+                throw new ArgumentException("O seu usuário não criou o registro desse cliente");
+
+            Models.TbTestDrive testdrive = bd.buscarAgendamentoId(idtest);
+
+            if(testdrive == null)
+                throw new ArgumentException("Esse teste drive não foi encontrado");
+
+            if(testdrive.IdCliente != client.IdCliente && user.IdUsuario != 1)
+                throw new ArgumentException("Você não tem permissão para desmarcar esse teste drive");
+
+            if(testdrive.BlDesmarcado == true)
+                throw new ArgumentException("Esse teste drive já foi desmarcado");
+
+            Models.TbTestDrive teste = bd.DesmarcarTestDrive(idtest);
+            return teste;
+        }
     }
 }

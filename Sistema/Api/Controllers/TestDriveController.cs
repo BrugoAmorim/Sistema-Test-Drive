@@ -136,5 +136,23 @@ namespace Api.Controllers
                 );
             }
         }
+
+        [HttpPut("agendamento/desmarcartestdrive/{idusuario}/{idcliente}/{idtestdrive}")]
+        public ActionResult<Models.Response.AgendamentoResponse> DesmarcarTestDrive(int idusuario, int idcliente, int idtestdrive){
+
+            try{
+
+                Models.TbTestDrive agendamento = validacoes.validarDesmarcarTestDrive(idusuario, idcliente, idtestdrive);
+                Models.Response.AgendamentoResponse caixoteRes = conversor.TbTestDriveparaTestRes(agendamento);
+
+                return caixoteRes;
+            }
+            catch(System.Exception ex){
+
+                return new BadRequestObjectResult(
+                    new Models.ErrorResponse(ex.Message, 404)
+                );
+            }
+        }
     }
 }

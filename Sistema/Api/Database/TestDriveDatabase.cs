@@ -92,5 +92,14 @@ namespace Api.Database
             ctx.SaveChanges();
             return Test;
         }
+
+        public Models.TbTestDrive DesmarcarTestDrive(int idtest){
+
+            Models.TbTestDrive agend = buscarAgendamentoId(idtest);
+            agend.BlDesmarcado = true;
+
+            ctx.SaveChanges();
+            return agend;
+        }
     }
 }

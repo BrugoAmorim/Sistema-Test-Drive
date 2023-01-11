@@ -108,7 +108,10 @@ namespace Api.Utils
             Models.Response.AgendamentoResponse TestRes = new Models.Response.AgendamentoResponse();
             TestRes.codigo = 200;
             TestRes.status = "Sucesso";
-            TestRes.mensagem = "Seu test drive foi marcado com sucesso";
+            if(test.BlDesmarcado == false)
+                TestRes.mensagem = "Seu test drive foi marcado com sucesso";
+            else if(test.BlDesmarcado == true)
+                TestRes.mensagem = "Seu test drive foi desmarcado com sucesso";    
 
             Models.Response.AgendamentoResponse.Dados data = new Models.Response.AgendamentoResponse.Dados();
             data.idagendamento = test.IdTestDrive;

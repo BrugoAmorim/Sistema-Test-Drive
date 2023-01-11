@@ -46,5 +46,31 @@ namespace Api.Business
             Models.TbCliente dadosAtualizados = clientedb.atualizardadosCliente(req, idcliente, iduser);
             return dadosAtualizados;
         }
+    
+        public Models.TbCliente validarCliente(int idcliente){
+
+            Models.TbCliente client = clientedb.buscarClienteId(idcliente);
+
+            if(idcliente == 0)
+                throw new ArgumentException("Este cliente é inválido");
+
+            if(client == null)
+                throw new ArgumentException("Este cliente não foi encontrado");
+
+            return client;
+        }
+
+        public Models.TbUsuario validarUsuario(int idusuario){
+
+            Models.TbUsuario user = clientedb.buscarUsuarioId(idusuario);
+
+            if(idusuario == 0)
+                throw new ArgumentException("Este usuario é inválido");
+
+            if(user == null)
+                throw new ArgumentException("Este usuário não foi encontrado");
+
+            return user;
+        }
     }
 }

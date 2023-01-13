@@ -42,5 +42,15 @@ namespace Api.Database
             return user;
         }
 
+        public Models.TbUsuario EditarContaUser(Models.Request.EditarContaRequest req, int idusuario){
+
+            Models.TbUsuario user = buscarUsuarioId(idusuario);
+            user.NmUsuario = req.usuario;
+            user.DsSenha = req.senha;
+            user.DtNascimento = req.nascimento;
+
+            ctx.SaveChanges();
+            return user;
+        }
     }
 }

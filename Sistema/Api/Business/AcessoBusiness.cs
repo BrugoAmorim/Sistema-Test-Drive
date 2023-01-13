@@ -60,5 +60,39 @@ namespace Api.Business
             Models.TbUsuario usuarioCriado = bd.salvarNovaConta(req);
             return usuarioCriado;
         }
+
+        public Models.TbUsuario validarEditarConta(Models.Request.EditarContaRequest req, int idusuario){
+
+            Models.TbUsuario user = bd.buscarUsuarioId(idusuario);
+
+            if(user == null)
+                throw new ArgumentException("Esse usuário não existe");
+
+            if(string.IsNullOrEmpty(req.usuario))
+                throw new ArgumentException("campo usuário obrigatorio");
+
+            if(string.IsNullOrEmpty(req.antigasenha))
+                throw new ArgumentException("Campo antiga senha obrigatorio");
+            
+            if(string.IsNullOrEmpty(req.senha))
+                throw new ArgumentException("Campo senha obrigatorio");
+                
+            if(string.IsNullOrEmpty(req.confirmarsenha))
+                throw new ArgumentException("Campo confirmar senha é obrigatorio");
+                
+            if(req.senha != req.confirmarsenha)
+                throw new ArgumentException("As senhas não coincidem");
+
+            if(user.DsSenha != req.antigasenha)
+                throw new ArgumentException("Senha incorreta");
+
+            ValidarCampos.ValidarSenha(req.senha);
+
+            if(req.nascimento.Year == DateTime.Now.Year)
+                throw new ArgumentException("Insira uma data de nascimento válida");
+
+            Models.TbUsuario usuarioatualizado = bd.EditarContaUser(req, idusuario);
+            return usuarioatualizado;
+        }
     }
 }

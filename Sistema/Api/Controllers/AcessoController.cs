@@ -46,5 +46,23 @@ namespace Api.Controllers
                 );
             }
         }
+    
+        [HttpPut("conta/editar/{idusuario}")]
+        public ActionResult<Models.Response.LoginResponse> EditarcontaUser(Models.Request.EditarContaRequest req, int idusuario){
+
+            try{
+
+                Models.TbUsuario usuarioupdate = validacoes.validarEditarConta(req, idusuario);
+                Models.Response.LoginResponse caixoteRes = conversor.TbUsuarioparaLoginRes(usuarioupdate);
+
+                return caixoteRes;
+            }
+            catch(System.Exception ex){
+
+                return new BadRequestObjectResult(
+                    new Models.ErrorResponse(ex.Message, 404)
+                );
+            }
+        }
     }
 }   

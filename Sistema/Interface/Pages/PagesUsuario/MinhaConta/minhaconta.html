@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Minha Conta</title>
+    <link rel="shortcut icon" href="../../../Public/image/traffic-jam.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./minhaconta.css">
+</head>
+<body>
+    <div class="container-master">
+        <div class="container">
+            <div class="container-conteudo">
+                <div class="bloco-usuario">
+                    <div class="informacoes-usuario">
+                        <div class="bloco-edit-user">
+                            <div class="bloco-user">
+                                <h1>Bruno Gomes</h1>
+                                <button class="btn-configuracoes">
+                                    <img src="../../../Public/image/configuracoes.png" height="35em" alt="editar conta">
+                                </button>
+                            </div>
+                            <div class="bloco-voltar">
+                                <button class="btn-voltar">
+                                    <img src="../../../Public/image/arrow-left.png" height="40em" alt="botao para voltar">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="bloco-informacoes">
+                            <div class="bloco-email">
+                                <input type="text" class="email" id="meuEmail" placeholder="Email" readonly value="bruno.gomes@gmail.com">
+                            </div>
+                            <div class="bloco-dtnascimento">
+                                <label class="lblnascimento" for="dtnascimento">Data de nascimento:</label>
+                                <input type="date" class="inpnascimento" id="dtnascimento">
+                            </div>
+                            <div class="bloco-ultimologin">
+                                <strong>Ultimo login:</strong>
+                                <span style="margin-left: 2%;">01/01/0001 ás 12:00:12</span>
+                            </div>
+                            <div class="bloco-contacriada">
+                                <strong>Conta criada:</strong>
+                                <span style="margin-left: 2%;">01/01/0001 ás 12:00:12</span>
+                            </div>
+                            <div class="bloco-ultimaalteracao">
+                                <strong>Ultima alteração:</strong>
+                                <span style="margin-left: 2%;">01/01/0001 ás 12:00:12</span>
+                            </div>
+                            <div class="bloco-excluirconta">
+                                <button class="btn-excluir">
+                                    Excluir conta
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bloco-minhas-atividades">
+                    <div class="container-atividades">
+                        <div class="atividades">
+                            <div class="bloco-avaliacoes">
+                                <button class="btn-avaliacoes">Minhas avaliações</button>
+                            </div>
+                            <div class="bloco-agendamentos">
+                                <button class="btn-agendamentos">Agendamentos realizados</button>
+                            </div>
+                        </div>
+                        <!-- São dois tipos de informacoes que ficarão nessa div, as informacoes sobre as avaliacoes e sobre os agendamentos -->
+                        <div class="informacoes-atividades">
+                            <!-- <div class="container-agendamentos">
+                                <table class="table">
+                                    <thead class="coluna">
+                                        <tr class="info-column">
+                                            <th>Carro</th>
+                                            <th>Data do teste</th>
+                                            <th>Realizado</th>
+                                            <th>Desmarcado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="registros">
+                                        <tr class="info-reg">
+                                            <td>asfd</td>
+                                            <td>adfasdf</td>
+                                            <td>asdfasdf</td>
+                                            <td>asdfasdf</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> -->
+                            <!-- <div class="container-avaliacoes">
+                                <div class="avaliacao">
+                                    <div class="comentario">
+                                        <textarea cols="30" rows="5" readonly>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur placeat nemo eius nesciunt autem, deserunt magni, architecto mollitia rem iste quia asperiores sapiente! At dolorum, eum saepe quibusdam dolorem aliquid?lo</textarea>
+                                    </div>
+                                    <div class="nota-data-publicacao">
+                                        <div class="nota">
+                                            <strong>Nota:</strong>
+                                            <span style="margin-left: 5%;">1</span>
+                                        </div>
+                                        <div class="data-pub">
+                                            <strong>Ultima alteração:</strong>
+                                            <span style="margin-left: 2%;">01/01/0001 as 12:00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="dev">
+                @BrugoAmorim
+            </div>
+            <div class="incorporacao">
+                &copy;TestCars Inc. 2022
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

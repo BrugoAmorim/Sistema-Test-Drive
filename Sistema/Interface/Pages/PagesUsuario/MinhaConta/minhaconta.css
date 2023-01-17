@@ -1,0 +1,487 @@
+body{
+    height: 105vh;
+    margin: 0%;
+    padding: 0%;
+}
+
+.container-master{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container{
+    height: 85%;
+    background-color: #87ceeb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer{
+    height: 15%;
+    background-color: black;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.dev, .incorporacao{
+    height: 70%;
+    width: 20%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 1.3em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.container-conteudo{
+    height: 100%;
+    width: 95%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.bloco-usuario{
+    height: 95%;
+    width: 43%;
+
+    background-color: #49bce9;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bloco-minhas-atividades{
+    height: 95%;
+    width: 55%;
+
+    background-color: #49bce9;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.informacoes-usuario{
+    height: 95%;
+    width: 95%;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    background-color: white;
+    border-radius: 8px;
+}
+
+.bloco-edit-user{
+    height: 20%;
+    width: 95%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bloco-informacoes{
+    height: 75%;
+    width: 95%;
+    
+    border: 1px solid silver;
+    border-radius: 4px;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.bloco-user{
+    height: 65%;
+    width: 90%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    border-bottom: 1px solid silver;
+}
+
+.bloco-user h1{
+    height: 100%;
+    font-size: 2.1em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+    display: flex;
+    align-items: center;
+}
+
+.btn-configuracoes{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.btn-configuracoes:active{
+    transition: 0.2s; 
+    transform: scale(0.96);
+}
+
+.bloco-voltar{
+    height: 65%;
+    width: 10%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    border-bottom: 1px solid silver;
+}
+
+.btn-voltar{
+    height: 95%;
+    width: 90%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    outline: none;
+    cursor: pointer;
+    
+    background-color: transparent;
+    border-radius: 8px;
+}
+
+.btn-voltar:hover{
+    transition: 0.3s;
+    background-color: rgba(0, 0, 0, 0.123);
+}
+
+.bloco-voltar:active{
+    transition: 0.2s;
+    transform: scale(0.98);
+}
+
+.bloco-email{
+    height: 15%;
+    width: 95%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email{
+    height: 55%;
+    width: 99%;
+    padding-left: 2%;
+
+    border: none;
+    outline: none;
+    border-bottom: 2px solid silver;
+
+    font-size: 1.2em;
+    background-color: rgba(0, 0, 0, 0.123);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.bloco-dtnascimento{
+    height: 20%;
+    width: 95%;
+
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.lblnascimento{
+    font-size: 1.2em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.inpnascimento{
+    height: 40%;
+    width: 97.1%;
+    padding-left: 2%;
+
+    outline: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.2em;
+}
+
+.bloco-contacriada, .bloco-ultimologin, .bloco-ultimaalteracao{
+    height: 10%;
+    width: 95%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    font-size: 1.2em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.bloco-excluirconta{
+    height: 10%;
+    width: 90%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.btn-excluir{
+    height: 80%;
+    width: 80%;
+
+    border: none;
+    outline: none;
+    cursor:  pointer;
+    background-color: transparent;
+    
+    font-size: 1.1em;
+    border-radius: 6px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.btn-excluir:hover{
+    transition: 0.3s;
+    border: #ff6961;
+    background-color: #ff6961;
+}
+
+.container-atividades{
+    height: 95%;
+    width: 96%;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    background-color: whitesmoke;   
+}
+
+.atividades{
+    height: 15%;
+    width: 97%;
+    border-bottom: 1px solid silver;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.informacoes-atividades{
+    height: 80%;
+    width: 97%;
+
+    display: block;
+    overflow-y: auto;
+}
+
+.bloco-avaliacoes, .bloco-agendamentos{
+    height: 80%;
+    width: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-avaliacoes, .btn-agendamentos{
+    height: 80%;
+    width: 85%;
+
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 6px;
+
+    font-size: 1.3em;
+    background-color: orange;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.btn-avaliacoes:hover, .btn-agendamentos:hover{
+    transition: 0.2s;
+    background-color: rgb(245, 159, 0);
+}
+
+.btn-agendamentos:active, .btn-avaliacoes:active{
+    transition: 0.3s;
+    transform: scale(0.97);
+}
+
+/* Configurações de classes caso sejam as informacoes referente aos agendamentos */
+
+.container-agendamentos{
+    height: 100%;
+    display: block;
+    overflow-y: auto;
+}
+
+.table{
+    height: 100%;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.coluna{
+    min-height: 15%;
+    width: 100%;
+    background-color: black;
+}
+
+.info-column{
+    height: 100%;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.coluna th{
+    height: 95%;
+    width: 25%;
+
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    
+    color: white;
+    font-size: 1.2em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.registros{
+    min-height: 85%;
+    width: 100%;
+}
+
+.info-reg{
+    min-height: 13%;
+    width: 100%;
+    border-bottom: 1px solid silver;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.registros td{
+    min-height: 100%;
+    width: 25%;
+    
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    
+    font-size: 1.2em;
+    border-left: 1px solid silver;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* Configurações de classes referentes as informaões das avaliações */
+.container-avaliacoes{
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.avaliacao{
+    height: auto;
+    display: flex;
+    margin: 1%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    border-radius: 4px;
+    background-color: white;
+}
+
+.comentario{
+    height: 70%;
+    width: 100%;
+    margin: 1%;
+
+    display: flex;
+}
+
+.comentario textarea{
+    height: auto;
+    width: 100%;
+    padding-left: 1%;
+
+    border: none;
+    outline: none;
+
+    font-size: 1.1em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.nota-data-publicacao{
+    height: 30%;
+    width: 100%;
+
+    border-top: 1px solid whitesmoke;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nota{
+    height: 100%;
+    width: 13%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.1em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.data-pub{
+    height: 100%;
+    width: 55%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.1em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

@@ -1,7 +1,7 @@
 
-window.onload = async () => {
+const id = localStorage.getItem("IDagend");
 
-    const id = localStorage.getItem("IDagend");
+window.onload = async () => {
 
     const url = "http://localhost:5000/TestDrive/agendamento/detalhes/" + id;
     const chamaapi = await fetch(url, {
@@ -66,4 +66,49 @@ const AdicionarInformacoesCarro = (carro) => {
 const Voltar = document.getElementById("btn-voltar");
 Voltar.onclick = () => {
     localStorage.removeItem("IDagend")
+}
+
+const rdFeito = document.getElementById("rd-feito");
+const rdNaoFeito = document.getElementById("rd-nao-feito");
+
+rdFeito.onclick = async () => {
+
+    const url = "http://localhost:5000/TestDrive/agendamento/marcarRealizado/" + id;
+
+    const chamaapi = await fetch(url, {
+        method: 'PUT',
+        mode: 'cors'
+    });
+
+    const res = chamaapi.json();
+    res.then(data => {
+
+        if(data.codigo == 200)
+            swal(data.status, data.mensagem, 'success');
+        else if(data.codigo == 400)
+            swal(data.status, data.mensagem, 'error');
+
+        window.onload;
+    })
+}
+
+rdNaoFeito.onclick = async () => {
+
+    const url = "http://localhost:5000/TestDrive/agendamento/marcarNaoRealizado/" + id;
+
+    const chamaapi = await fetch(url, {
+        method: 'PUT',
+        mode: 'cors'
+    });
+
+    const res = chamaapi.json();
+    res.then(data => {
+
+        if(data.codigo == 200)
+            swal(data.status, data.mensagem, 'success');
+        else if(data.codigo == 400)
+            swal(data.status, data.mensagem, 'error');
+
+        window.onload;
+    })
 }

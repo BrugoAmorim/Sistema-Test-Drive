@@ -12,7 +12,7 @@ body{
 
 .container{
     height: 85%;
-    background-color: #87ceeb;
+    background-color: #b2e8fd;
 
     display: flex;
     align-items: center;
@@ -133,14 +133,15 @@ footer{
     align-items: center;
 }
 
-.btn-configuracoes{
+.link-configuracoes{
+    margin-left: 1%;
     border: none;
     outline: none;
     cursor: pointer;
     background-color: transparent;
 }
 
-.btn-configuracoes:active{
+.link-configuracoes:active{
     transition: 0.2s; 
     transform: scale(0.96);
 }
@@ -196,12 +197,11 @@ footer{
     width: 99%;
     padding-left: 2%;
 
-    border: none;
     outline: none;
-    border-bottom: 2px solid silver;
-
-    font-size: 1.2em;
-    background-color: rgba(0, 0, 0, 0.123);
+    font-size: 1.1em;
+    color: rgb(102, 102, 102);
+    border: 2px solid silver;
+    background-color: whitesmoke;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -231,14 +231,17 @@ footer{
 }
 
 .bloco-contacriada, .bloco-ultimologin, .bloco-ultimaalteracao{
-    height: 10%;
-    width: 95%;
+    height: 14%;
+    width: 96%;
 
     display: flex;
     align-items: center;
     flex-direction: row;
+    justify-content: space-between;
 
-    font-size: 1.2em;
+    font-size: 1.1em;
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -267,8 +270,9 @@ footer{
 
 .btn-excluir:hover{
     transition: 0.3s;
-    border: #ff6961;
-    background-color: #ff6961;
+    color: white;
+    border: #dc3545;
+    background-color: #dc3545;
 }
 
 .container-atividades{

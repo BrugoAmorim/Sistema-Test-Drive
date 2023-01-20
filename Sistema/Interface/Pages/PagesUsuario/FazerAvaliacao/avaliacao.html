@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazer avaliação</title>
+    <link rel="stylesheet" href="./avaliacao.css">
+    <link rel="shortcut icon" href="../../../Public/image/traffic-jam.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container-master">
+        <div class="cabecalho">
+            <div class="container-usuario">
+                <a href="../MinhaConta/minhaconta.html" class="meu-perfil">
+                    <img src="../../../Public/image/usuario.png" alt="icone-usuario" height="70em">
+                </a>
+                <h1 id="nm-user" style="margin-left: 1%;">
+                    Bruno Gomes
+                </h1>
+            </div>
+            <div class="container-voltar">
+                <a href="../Home/homeusuario.html" class="btn-voltar">
+                    <img src="../../../Public/image/arrow-left.png" alt="icone voltar" height="55em">
+                </a>
+            </div>
+        </div>
+        <div class="container-conteudo">
+            <div class="bloco-conteudo">
+                <div class="bloco-avaliacao">
+                    <div class="form-avaliacao">
+                        <div class="bloco-informacoes">
+                            <h1>
+                                Faça sua avaliação aqui, é muito importante que você nos de um feedback para podermos melhorar o nosso sistema e ajudar você caso haja algum problema.
+                            </h1>
+                        </div>
+                        <div class="bloco-feedback">
+                            <ul id="nota" class="lista-notas">
+                                <li onmouseover="resaltar(1)" onmouseout="resetar()" onclick="avaliar(1)">★</li>
+                                <li onmouseover="resaltar(2)" onmouseout="resetar()" onclick="avaliar(2)">★</li>
+                                <li onmouseover="resaltar(3)" onmouseout="resetar()" onclick="avaliar(3)">★</li>
+                                <li onmouseover="resaltar(4)" onmouseout="resetar()" onclick="avaliar(4)">★</li>
+                                <li onmouseover="resaltar(5)" onmouseout="resetar()" onclick="avaliar(5)">★</li>
+                            </ul>
+                        </div>
+                        <div class="bloco-comentario">
+                            <textarea cols="30" rows="10" placeholder="Deixe seu comentário aqui"></textarea>
+                        </div>
+                        <div class="bloco-evento">
+                            <button class="btn-enviar-feedback">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="dev">
+                @BrugoAmorim
+            </div>
+            <div class="incorporacao">
+                &copy;TestCars Inc. 2022
+            </div>
+        </footer>
+    </div>
+    <script src="../../../Public/javascript/estrelafeedback.js"></script>
+</body>
+</html>

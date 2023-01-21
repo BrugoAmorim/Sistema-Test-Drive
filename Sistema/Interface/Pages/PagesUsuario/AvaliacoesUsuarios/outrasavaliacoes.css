@@ -1,0 +1,239 @@
+body{
+    height: 130vh;
+    margin: 0%;
+    padding: 0%;
+}
+
+.container-master{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecalho{
+    height: 15%;
+    background-color: #ffc222;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container-usuario{
+    height: 80%;
+    width: 30%;
+    padding-left: 5%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    font-size: 1.2em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.meu-perfil{
+    cursor: pointer;
+
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-voltar{
+    height: 80%;
+    width: 15%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-voltar{
+    height: 80%;
+    width: 25%;
+
+    border-radius: 6px;
+    cursor: pointer;
+    outline: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-voltar:hover{
+    transition: 0.2s;
+    background-color: rgba(0, 0, 0, 0.123);
+}
+
+footer{
+    height: 13%;
+    background-color: black;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.dev, .incorporacao{
+    height: 80%;
+    width: 20%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    color: white;
+    font-size: 1.3em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.container{
+    height: 75%;
+    background-color: whitesmoke;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-avaliacoes{
+    height: 100%;
+    width: 90%;
+    background-color: white;
+
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.titulo-page{
+    height: 15%;
+    width: 100%;
+
+    border-bottom: 1px solid whitesmoke;
+
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: flex-start;
+
+    font-size: 1.2em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.bloco-feedback{
+    height: 80%;
+    width: 95%;
+
+    display: block;
+    overflow-y: auto;
+}
+
+.bloco-feedback::-webkit-scrollbar{
+    display: none;
+}
+
+.feedbacks{
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.avaliacao{
+    min-height: auto;
+    width: 100%;
+    border-bottom: 1px solid silver;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bloco-informacoesusuario{
+    height: 25%;
+    width: 97%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.usuario{
+    height: 90%;
+    width: auto;
+ 
+    display: flex;
+    align-items: center;
+}
+
+.nome-usuario{
+    font-size: 1.3em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.data-publicacao{
+    height: 90%;
+    min-width: 25%;
+    width: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    color: silver;
+    font-size: 1.2em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.bloco-comentario{
+    height: auto;
+    width: 97%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comentario{
+    height: auto;
+    width: 100%;
+    margin: 0%;
+
+
+    display: flex;
+    font-size: 1em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.bloco-nota{
+    max-height: auto;
+    width: 97%;
+
+    display: flex;
+    align-items: center;
+}
+
+.estrelas{
+    height: 100%;
+    font-size: 2em;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

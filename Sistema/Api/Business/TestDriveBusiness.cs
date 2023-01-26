@@ -126,7 +126,7 @@ namespace Api.Business
             if(Test.BlDesmarcado == true)
                 throw new ArgumentException("Este agendamento foi desmarcado");
 
-            if(DateTime.Now > Test.DtTestDrive)
+            if(DateTime.Now < Test.DtTestDrive)
                 throw new ArgumentException("Você não pode marcar como não feito um agendamento fora da data estabelecida");
 
             return bd.AgendamentoNaoFeito(Test);

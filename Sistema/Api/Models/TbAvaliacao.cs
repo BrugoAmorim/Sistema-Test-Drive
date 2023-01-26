@@ -11,7 +11,7 @@ namespace Api.Models
         }
 
         public int IdAvaliacao { get; set; }
-        public decimal? VlFeedback { get; set; }
+        public decimal VlFeedback { get; set; }
 
         public virtual ICollection<TbFeedback> TbFeedbacks { get; set; }
     }

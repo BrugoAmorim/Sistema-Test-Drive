@@ -10,6 +10,24 @@ namespace Api.Controllers
     [Route("[controller]")]
     public class AvaliacoesController : ControllerBase
     {
-        
+        Business.AvaliacoesBusiness validacoes = new Business.AvaliacoesBusiness();
+        Utils.AvaliacoesUtils converter = new Utils.AvaliacoesUtils();
+
+        [HttpGet("buscaravaliacoes")]
+        public ActionResult<List<Models.Response.AvaliacaoResponse>> buscarAvaliacoes(){
+
+            try{
+                List<Models.TbFeedback> feedbacks = validacoes.validarbuscarFeedbacks();
+                List<Models.Response.AvaliacaoResponse> feedbackRes = converter.listaAvlparaAvlRes(feedbacks);
+
+                return feedbackRes;
+            }
+            catch(System.Exception ex){
+
+                return new BadRequestObjectResult(
+                    new Models.ErrorResponse(ex.Message, 400)
+                );
+            }
+        }       
     }
 }

@@ -46,5 +46,18 @@ namespace Api.Database
 
             return feedback;
         }
+
+        public Models.TbFeedback salvarAlteracoesAvaliacao(Models.Request.AvaliacaoRequest req, int iduser, int idfeed){
+
+            Models.TbFeedback alterarDados = db.TbFeedbacks.First(x => x.IdFeedback == idfeed && x.IdUsuario == iduser);
+            alterarDados.DsFeedback = req.avaliacao;
+            alterarDados.IdAvaliacao = req.notaavaliacao;
+            alterarDados.DtUltimaAlteracao = DateTime.Now;
+
+            db.SaveChanges();
+
+            Models.TbFeedback feedbackalterado = buscarAvaliacaoId(alterarDados.IdFeedback);
+            return feedbackalterado;
+        }
     }
 }

@@ -89,5 +89,16 @@ namespace Api.Business
 
         }
     
+        public void Avaliacao(Models.Request.AvaliacaoRequest req){
+
+            Database.AvaliacoesDatabase bdfeedback = new Database.AvaliacoesDatabase();
+
+            if(req.avaliacao.Trim().Length == 0)
+                throw new ArgumentException("O campo avaliação esta vazio");
+
+            List<Models.TbAvaliacao> notasfeedback = bdfeedback.listarNotas();
+            if(notasfeedback.FirstOrDefault(x => x.VlFeedback == req.notaavaliacao) == null)
+                throw new ArgumentException("Essa nota é inválida");
+        }
     }
 }

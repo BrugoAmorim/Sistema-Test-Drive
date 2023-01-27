@@ -46,5 +46,23 @@ namespace Api.Controllers
                 );
             }
         }
+
+        [HttpPut("editar/{idusuario}/{idavaliacao}")]       
+        public ActionResult<Models.Response.AvaliacaoResponse> EditarAvaliacao(Models.Request.AvaliacaoRequest Avlreq, int idusuario, int idavaliacao){
+
+            try{
+
+                Models.TbFeedback Feedbackalterado = validacoes.validareditarFeedback(Avlreq, idusuario, idavaliacao);
+                Models.Response.AvaliacaoResponse feedbackRes = converter.TbAvlparaAvlRes(Feedbackalterado);
+
+                return feedbackRes;
+            }   
+            catch(System.Exception ex){
+
+                return new BadRequestObjectResult(
+                    new Models.ErrorResponse(ex.Message, 400)
+                );
+            }
+        }
     }
 }

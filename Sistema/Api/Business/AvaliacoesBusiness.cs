@@ -9,6 +9,7 @@ namespace Api.Business
     {
         Database.AvaliacoesDatabase bdfeedback = new Database.AvaliacoesDatabase();
         Database.UsuarioDatabase bdusuarios = new Database.UsuarioDatabase();
+        ValidarCamposBusiness validarcampos = new ValidarCamposBusiness();
 
         public List<Models.TbFeedback> validarbuscarFeedbacks(){
 
@@ -22,12 +23,7 @@ namespace Api.Business
 
         public Models.TbFeedback validarnovoFeedback(Models.Request.AvaliacaoRequest req, int idusuario){
 
-            if(string.IsNullOrEmpty(req.avaliacao))
-                throw new ArgumentException("Você precisa escrever uma avaliação");
-
-            List<Models.TbAvaliacao> notasfeedback = bdfeedback.listarNotas();
-            if(notasfeedback.FirstOrDefault(x => x.VlFeedback == req.notaavaliacao) == null)
-                throw new ArgumentException("Essa nota é inválida");
+            validarcampos.Avaliacao(req);
 
             Models.TbUsuario user = bdusuarios.buscarUsuarioId(idusuario);
             if(user == null)
@@ -35,6 +31,25 @@ namespace Api.Business
 
             Models.TbFeedback feedbacksalvo = bdfeedback.salvarAvaliacao(req, idusuario);
             return feedbacksalvo;
+        }
+
+        public Models.TbFeedback validareditarFeedback(Models.Request.AvaliacaoRequest req, int idusuario, int idavl){
+
+            validarcampos.Avaliacao(req);
+
+            Models.TbUsuario user = bdusuarios.buscarUsuarioId(idusuario);
+            if(user == null)
+                throw new ArgumentException("Esse usuário não foi encontrado");
+
+            Models.TbFeedback feedback = bdfeedback.buscarAvaliacaoId(idavl);
+            if(feedback == null)
+                throw new ArgumentException("Essa avaliação não foi encontrada");
+
+            if(feedback.IdUsuario != user.IdUsuario)
+                throw new ArgumentException("Você não tem permissão para editar essa avaliação");
+     
+            Models.TbFeedback novoFeedback = bdfeedback.salvarAlteracoesAvaliacao(req, idusuario, idavl);
+            return novoFeedback;
         }
     }
 }

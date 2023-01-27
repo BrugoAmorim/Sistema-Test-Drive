@@ -28,6 +28,23 @@ namespace Api.Controllers
                     new Models.ErrorResponse(ex.Message, 400)
                 );
             }
-        }       
+        }    
+
+        [HttpPost("fazeravaliacao/{idusuario}")]
+        public ActionResult<Models.Response.AvaliacaoResponse> FazerAvaliacao(Models.Request.AvaliacaoRequest avaliacaoReq, int idusuario){
+
+            try{
+                Models.TbFeedback feedbacksalvo = validacoes.validarnovoFeedback(avaliacaoReq, idusuario);
+                Models.Response.AvaliacaoResponse feedbackRes = converter.TbAvlparaAvlRes(feedbacksalvo);
+
+                return feedbackRes;
+            }
+            catch(System.Exception ex){
+
+                return new BadRequestObjectResult(
+                    new Models.ErrorResponse(ex.Message, 400)
+                );
+            }
+        }
     }
 }

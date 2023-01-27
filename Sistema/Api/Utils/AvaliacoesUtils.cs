@@ -37,5 +37,17 @@ namespace Api.Utils
 
             return FeedbackRes;
         }
+
+        public Models.TbFeedback reqAvlparaTbAvl(Models.Request.AvaliacaoRequest reqavaliacao, int idusuario){
+
+            Models.TbFeedback tbfeedback = new Models.TbFeedback();
+            tbfeedback.DsFeedback = reqavaliacao.avaliacao;
+            tbfeedback.IdAvaliacao = reqavaliacao.notaavaliacao;
+            tbfeedback.IdUsuario = idusuario;
+            tbfeedback.DtFeedback = DateTime.Now;
+            tbfeedback.DtUltimaAlteracao = DateTime.Now;
+
+            return tbfeedback;
+        }
     }
 }

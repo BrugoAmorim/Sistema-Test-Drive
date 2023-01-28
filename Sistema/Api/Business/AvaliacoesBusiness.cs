@@ -11,14 +11,39 @@ namespace Api.Business
         Database.UsuarioDatabase bdusuarios = new Database.UsuarioDatabase();
         ValidarCamposBusiness validarcampos = new ValidarCamposBusiness();
 
-        public List<Models.TbFeedback> validarbuscarFeedbacks(){
+        public List<Models.TbFeedback> validarMeusFeedbacks(int iduser){
 
             List<Models.TbFeedback> avl = bdfeedback.listarFeedbacks();
+
+            if(iduser <= 0)
+                throw new ArgumentException("Esse usuário é inválido");
+
+            Models.TbUsuario user = bdusuarios.buscarUsuarioId(iduser);
+            if(user == null)
+                throw new ArgumentException("Esse usuário não foi encontrado");
+
+            List<Models.TbFeedback> meusfeedbacks = avl.Where(x => x.IdUsuario == iduser).ToList();
+            if(meusfeedbacks.Count == 0)
+                throw new ArgumentException("Você ainda não escreveu uma avaliação");
+
+            return meusfeedbacks;
+        }
+
+        public List<Models.TbFeedback> validarOutrosFeedbacks(int iduser){
+
+            List<Models.TbFeedback> avl = bdfeedback.listarFeedbacks();
+
+            if(iduser <= 0)
+                throw new ArgumentException("Esse usuário é inválido");
+
+            Models.TbUsuario user = bdusuarios.buscarUsuarioId(iduser);
+            if(user == null)
+                throw new ArgumentException("Esse usuário não foi encontrado");
 
             if(avl.Count == 0)
                 throw new ArgumentException("Ainda não há registros de avaliações");
 
-            return avl;
+            return avl.Where(x => x.IdUsuario != iduser).ToList(); 
         }
 
         public Models.TbFeedback validarnovoFeedback(Models.Request.AvaliacaoRequest req, int idusuario){

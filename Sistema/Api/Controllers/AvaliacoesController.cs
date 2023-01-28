@@ -13,11 +13,11 @@ namespace Api.Controllers
         Business.AvaliacoesBusiness validacoes = new Business.AvaliacoesBusiness();
         Utils.AvaliacoesUtils converter = new Utils.AvaliacoesUtils();
 
-        [HttpGet("buscaravaliacoes")]
-        public ActionResult<List<Models.Response.AvaliacaoResponse>> buscarAvaliacoes(){
+        [HttpGet("minhas")]
+        public ActionResult<List<Models.Response.AvaliacaoResponse>> minhasAvaliacoes(int idusuario){
 
             try{
-                List<Models.TbFeedback> feedbacks = validacoes.validarbuscarFeedbacks();
+                List<Models.TbFeedback> feedbacks = validacoes.validarMeusFeedbacks(idusuario);
                 List<Models.Response.AvaliacaoResponse> feedbackRes = converter.listaAvlparaAvlRes(feedbacks);
 
                 return feedbackRes;
@@ -28,7 +28,25 @@ namespace Api.Controllers
                     new Models.ErrorResponse(ex.Message, 400)
                 );
             }
-        }    
+        }
+
+        [HttpGet("outras")]
+        public ActionResult<List<Models.Response.AvaliacaoResponse>> outrasAvaliacoes(int idusuario){
+
+            try{
+                List<Models.TbFeedback> feedbacks = validacoes.validarOutrosFeedbacks(idusuario);
+                List<Models.Response.AvaliacaoResponse> feedbackRes = converter.listaAvlparaAvlRes(feedbacks);
+
+                return feedbackRes;
+            }
+            catch(System.Exception ex){
+
+                return new BadRequestObjectResult(
+                    new Models.ErrorResponse(ex.Message, 400)
+                );
+            }
+        }
+
 
         [HttpPost("fazeravaliacao/{idusuario}")]
         public ActionResult<Models.Response.AvaliacaoResponse> FazerAvaliacao(Models.Request.AvaliacaoRequest avaliacaoReq, int idusuario){
@@ -68,18 +86,18 @@ namespace Api.Controllers
         [HttpDelete("excluir/{idusuario}/{idavaliacao}")]
         public ActionResult<Models.SuccessResponse> ExcluirAvaliacao(int idusuario, int idavaliacao){
             
-            // try{
+            try{
 
                 validacoes.validarexcluirFeedback(idusuario, idavaliacao);
 
                 return new Models.SuccessResponse("A avaliação foi excluída com êxito", 200);
-            // }
-            // catch(System.Exception ex){
+            }
+            catch(System.Exception ex){
 
-            //     return new BadRequestObjectResult(
-            //         new Models.ErrorResponse(ex.Message, 400)
-            //     );
-            // }
+                return new BadRequestObjectResult(
+                    new Models.ErrorResponse(ex.Message, 400)
+                );
+            }
         }
     }
 }

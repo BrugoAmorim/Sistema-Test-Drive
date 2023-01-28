@@ -64,5 +64,22 @@ namespace Api.Controllers
                 );
             }
         }
+
+        [HttpDelete("excluir/{idusuario}/{idavaliacao}")]
+        public ActionResult<Models.SuccessResponse> ExcluirAvaliacao(int idusuario, int idavaliacao){
+            
+            // try{
+
+                validacoes.validarexcluirFeedback(idusuario, idavaliacao);
+
+                return new Models.SuccessResponse("A avaliação foi excluída com êxito", 200);
+            // }
+            // catch(System.Exception ex){
+
+            //     return new BadRequestObjectResult(
+            //         new Models.ErrorResponse(ex.Message, 400)
+            //     );
+            // }
+        }
     }
 }

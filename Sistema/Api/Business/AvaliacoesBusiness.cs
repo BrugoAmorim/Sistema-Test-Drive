@@ -51,5 +51,27 @@ namespace Api.Business
             Models.TbFeedback novoFeedback = bdfeedback.salvarAlteracoesAvaliacao(req, idusuario, idavl);
             return novoFeedback;
         }
+
+        public void validarexcluirFeedback(int idusuario, int idavl){
+            
+            if(idusuario <= 0)
+                throw new ArgumentException("O ID do usuário é inválido");
+
+            if(idavl <= 0)
+                throw new ArgumentException("O ID da avaliação é inválido");
+
+            Models.TbUsuario user = bdusuarios.buscarUsuarioId(idusuario);
+            if(user == null)
+                throw new ArgumentException("Esse usuário não foi encontrado");
+
+            Models.TbFeedback feedback = bdfeedback.buscarAvaliacaoId(idavl);
+            if(feedback == null)
+                throw new ArgumentException("Essa avaliação não foi encontrada");
+
+            if(feedback.IdUsuario != user.IdUsuario)
+                throw new ArgumentException("Você não tem permissão para excluir essa avaliação");
+     
+            bdfeedback.apagarAvaliacao(idusuario, idavl);
+        }
     }
 }

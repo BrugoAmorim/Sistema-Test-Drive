@@ -59,5 +59,13 @@ namespace Api.Database
             Models.TbFeedback feedbackalterado = buscarAvaliacaoId(alterarDados.IdFeedback);
             return feedbackalterado;
         }
+
+        public void apagarAvaliacao(int iduser, int idfeed){
+
+            Models.TbFeedback feedback = db.TbFeedbacks.First(x => x.IdFeedback == idfeed && x.IdUsuario == iduser);
+
+            db.TbFeedbacks.Remove(feedback);
+            db.SaveChanges();
+        }
     }
 }

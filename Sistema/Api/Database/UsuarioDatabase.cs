@@ -52,5 +52,33 @@ namespace Api.Database
             ctx.SaveChanges();
             return user;
         }
+
+        public void ApagarUsuario(int iduser){
+
+            Models.TbUsuario user = ctx.TbUsuarios.First(x => x.IdUsuario == iduser);
+            List<Models.TbCliente> clientesUser = ctx.TbClientes.Where(x => x.IdUsuario == user.IdUsuario).ToList();
+
+            List<Models.TbTestDrive> testesdrives = ctx.TbTestDrives.ToList();
+            foreach(Models.TbCliente client in clientesUser){
+
+                Models.TbTestDrive test = testesdrives.First(x => x.IdCliente == client.IdCliente);
+                
+                ctx.TbTestDrives.Remove(test);
+                ctx.SaveChanges();
+            }
+
+            ctx.TbClientes.RemoveRange(clientesUser);
+            ctx.SaveChanges();
+            
+            List<Models.TbFeedback> avaliacoes = ctx.TbFeedbacks.Where(x => x.IdUsuario == user.IdUsuario).ToList();
+            foreach(Models.TbFeedback feedback in avaliacoes){
+
+                ctx.TbFeedbacks.Remove(feedback);
+                ctx.SaveChanges();
+            }
+
+            ctx.TbUsuarios.Remove(user);
+            ctx.SaveChanges();
+        }
     }
 }

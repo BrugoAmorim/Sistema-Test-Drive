@@ -94,5 +94,18 @@ namespace Api.Business
             Models.TbUsuario usuarioatualizado = bd.EditarContaUser(req, idusuario);
             return usuarioatualizado;
         }
+    
+        public void validarApagarConta(int iduser){
+
+            Models.TbUsuario user = bd.buscarUsuarioId(iduser);
+
+            if(iduser <= 0)
+                throw new ArgumentException("Esse usuário é inválido");
+
+            if(user == null)
+                throw new ArgumentException("Esse usuário não foi encontrado");
+
+            bd.ApagarUsuario(iduser);
+        }
     }
 }

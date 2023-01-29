@@ -64,5 +64,21 @@ namespace Api.Controllers
                 );
             }
         }
+
+        [HttpDelete("conta/excluir/{idusuario}")]
+        public ActionResult<Models.SuccessResponse> ExcluircontaUser(int idusuario){
+
+            try{
+                validacoes.validarApagarConta(idusuario);
+
+                return new Models.SuccessResponse("Conta excluída", 200);
+            }
+            catch(System.Exception ex){
+
+                return new BadRequestObjectResult(
+                    new Models.ErrorResponse(ex.Message, 400)
+                );
+            }
+        }
     }
 }   

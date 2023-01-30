@@ -16,7 +16,7 @@
                     <img src="../../../Public/image/usuario.png" alt="icone-usuario" height="70em">
                 </a>
                 <h1 id="nm-user" style="margin-left: 1%;">
-                    Bruno Gomes
+                    <!-- nome do usuario -->
                 </h1>
             </div>
             <div class="container-voltar">
@@ -29,30 +29,32 @@
             <div class="container-minhaavaliacao">
                 <div class="guia">
                     <div class="container-guia">
-                        <h1>Edite por aqui as informações sobre a sua avaliação realizada no dia 01/01</h1>
+                        <h1 id="titulo">Edite por aqui as informações sobre a sua avaliação realizada no dia </h1>
                     </div>
                 </div>
                 <div class="avaliacao-datas-estrelas">
                     <div class="container-estrelas">
                         <div class="estrelas">
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
+                            <ul id="nota-usuario" class="lista-notas">
+                                <li>★</li>
+                                <li>★</li>
+                                <li>★</li>
+                                <li>★</li>
+                                <li>★</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="container-avaliacao">
-                        <textarea class="feedback-txt" cols="30" rows="10" placeholder="Escreva aqui sua avaliação..."></textarea>
+                        <textarea id="avaliacao-user" class="feedback-txt" cols="30" rows="10" placeholder="Escreva aqui sua avaliação..."></textarea>
                     </div>
                     <div class="container-data">
                         <div class="data-publicacao">
                             <p class="paragrafo-data">Feito em:</p>
-                            <span class="paragrafo-data">01/01/0001 ás 01:01:01</span>
+                            <span id="data-publicado" class="paragrafo-data"></span>
                         </div>
                         <div class="data-alteracao">
                             <p class="paragrafo-data">Ultima alteração:</p>
-                            <span class="paragrafo-data">01/01/0001 ás 01:01:01</span>
+                            <span id="data-alterado" class="paragrafo-data"></span>
                         </div>
                     </div>
                 </div>

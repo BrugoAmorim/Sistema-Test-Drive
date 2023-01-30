@@ -1,5 +1,6 @@
 
 import { getlocalStorage } from "../../../Public/javascript/localstorage.js";
+import { postStorageFeedback } from "../../../Public/javascript/localstoragefeedback.js";
 
 const user = getlocalStorage();
 const nomeuser = document.getElementById("nm-user");
@@ -11,8 +12,6 @@ window.onload = async () => {
     const meusFeedbacks = await listarFeedbacks();
     
     meusFeedbacks.map(item => {
-
-        console.log(item)
 
         const avl = CriarObjetoAvaliacao(item);
         containerfeedback.appendChild(avl)
@@ -56,7 +55,7 @@ const CriarObjetoAvaliacao = (Feedback) => {
     btneditar.appendChild(ibars);
     
     btneditar.appendChild(document.createTextNode("Editar"));
-    btneditar.onclick = () => { Editar(Feedback.idavaliacao) };
+    btneditar.onclick = () => { Editar(Feedback) };
 
     const btnapagar = document.createElement('button');
     btnapagar.classList.add("btn-apag");
@@ -146,7 +145,7 @@ const formatarData = (data) => {
     return dia + '/' + mes + '/' + data.getFullYear();
 }
 
-const colorStar = (notaAvl, List) => {
+export const colorStar = (notaAvl, List) => {
 
     for(let i = 0; i < notaAvl; i++){
 
@@ -154,9 +153,9 @@ const colorStar = (notaAvl, List) => {
     }
 }
 
-const Editar = (idFeedback) => {
+const Editar = (Feedback) => {
 
-    localStorage.setItem("idAvaliacao", idFeedback);
+    postStorageFeedback(Feedback);
     window.location.href = "../EditarAvaliacao/editarfeedback.html";
 }
 

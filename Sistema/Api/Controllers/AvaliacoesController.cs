@@ -49,13 +49,15 @@ namespace Api.Controllers
 
 
         [HttpPost("fazeravaliacao/{idusuario}")]
-        public ActionResult<Models.Response.AvaliacaoResponse> FazerAvaliacao(Models.Request.AvaliacaoRequest avaliacaoReq, int idusuario){
+        public ActionResult<Models.Response.AvaliacaoCompostoResponse> FazerAvaliacao(Models.Request.AvaliacaoRequest avaliacaoReq, int idusuario){
 
             try{
                 Models.TbFeedback feedbacksalvo = validacoes.validarnovoFeedback(avaliacaoReq, idusuario);
-                Models.Response.AvaliacaoResponse feedbackRes = converter.TbAvlparaAvlRes(feedbacksalvo);
 
-                return feedbackRes;
+                Models.Response.AvaliacaoResponse feedback = converter.TbAvlparaAvlRes(feedbacksalvo);
+                Models.Response.AvaliacaoCompostoResponse FeedbackComRes = converter.CriarAvlCompostoResponse(feedback);
+
+                return FeedbackComRes;
             }
             catch(System.Exception ex){
 
@@ -66,14 +68,16 @@ namespace Api.Controllers
         }
 
         [HttpPut("editar/{idusuario}/{idavaliacao}")]       
-        public ActionResult<Models.Response.AvaliacaoResponse> EditarAvaliacao(Models.Request.AvaliacaoRequest Avlreq, int idusuario, int idavaliacao){
+        public ActionResult<Models.Response.AvaliacaoCompostoResponse> EditarAvaliacao(Models.Request.AvaliacaoRequest Avlreq, int idusuario, int idavaliacao){
 
             try{
 
                 Models.TbFeedback Feedbackalterado = validacoes.validareditarFeedback(Avlreq, idusuario, idavaliacao);
-                Models.Response.AvaliacaoResponse feedbackRes = converter.TbAvlparaAvlRes(Feedbackalterado);
+                
+                Models.Response.AvaliacaoResponse feedback = converter.TbAvlparaAvlRes(Feedbackalterado);
+                Models.Response.AvaliacaoCompostoResponse FeedbackComRes = converter.CriarAvlCompostoResponse(feedback);
 
-                return feedbackRes;
+                return FeedbackComRes;
             }   
             catch(System.Exception ex){
 

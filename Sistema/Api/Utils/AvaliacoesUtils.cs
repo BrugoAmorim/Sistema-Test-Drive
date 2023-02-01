@@ -49,5 +49,15 @@ namespace Api.Utils
 
             return tbfeedback;
         }
+
+        public Models.Response.AvaliacaoCompostoResponse CriarAvlCompostoResponse(Models.Response.AvaliacaoResponse res){
+            Models.Response.AvaliacaoCompostoResponse ResComposto = new Models.Response.AvaliacaoCompostoResponse();
+            ResComposto.status = "Sucesso";
+            ResComposto.mensagem = "Ação realizada com êxito";
+            ResComposto.codigo = 200;
+
+            ResComposto.avaliacao = res;
+            return ResComposto;
+        }
     }
 }

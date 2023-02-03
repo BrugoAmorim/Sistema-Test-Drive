@@ -30,8 +30,11 @@ const modeloData = (datetime) => {
     let ano = datetime.getFullYear();
     
     let hora = datetime.getHours();
+    hora = hora < 10 ? "0" + hora : hora;
     let minuto = datetime.getMinutes();
+    minuto = minuto < 10 ? "0" + minuto : minuto;
     let segundo = datetime.getSeconds();
+    segundo = segundo < 10 ? "0" + segundo : segundo; 
     
     const modeldata = dia + "/" + mes + "/" + ano;
     const horario = hora + ':' + minuto + ':' + segundo;
@@ -118,7 +121,7 @@ const RemovervaloresFeedback = () => {
 }
 
 var novaNota = dataFeedback.nota;
-const MudarNota = () => {
+export const MudarNota = () => {
 
     const stars = document.querySelectorAll(".star");
     let rating = dataFeedback.nota;

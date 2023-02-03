@@ -28,26 +28,26 @@
         <div class="container-conteudo">
             <div class="bloco-conteudo">
                 <div class="bloco-avaliacao">
-                    <div class="form-avaliacao">
+                    <div class="form-avaliacao">    
                         <div class="bloco-informacoes">
                             <h1>
                                 Faça sua avaliação aqui, é muito importante que você nos de um feedback para podermos melhorar o nosso sistema e ajudar você caso haja algum problema.
                             </h1>
                         </div>
                         <div class="bloco-feedback">
-                            <ul id="nota" class="lista-notas">
-                                <li onmouseover="resaltar(1)" onmouseout="resetar()" onclick="avaliar(1)">★</li>
-                                <li onmouseover="resaltar(2)" onmouseout="resetar()" onclick="avaliar(2)">★</li>
-                                <li onmouseover="resaltar(3)" onmouseout="resetar()" onclick="avaliar(3)">★</li>
-                                <li onmouseover="resaltar(4)" onmouseout="resetar()" onclick="avaliar(4)">★</li>
-                                <li onmouseover="resaltar(5)" onmouseout="resetar()" onclick="avaliar(5)">★</li>
+                            <ul class="lista-notas">
+                                <li class="star">★</li>
+                                <li class="star">★</li>
+                                <li class="star">★</li>
+                                <li class="star">★</li>
+                                <li class="star">★</li>
                             </ul>
                         </div>
                         <div class="bloco-comentario">
-                            <textarea cols="30" rows="10" placeholder="Deixe seu comentário aqui"></textarea>
+                            <textarea id="minha-avaliacao" cols="30" rows="10" placeholder="Deixe seu comentário aqui"></textarea>
                         </div>
                         <div class="bloco-evento">
-                            <button class="btn-enviar-feedback">Enviar</button>
+                            <button class="btn-enviar-feedback" id="btn-enviar">Enviar</button>
                         </div>
                     </div>
                 </div>
@@ -63,6 +63,6 @@
         </footer>
     </div>
     <script src="./avaliacao.js" type="module"></script>
-    <script src="../../../Public/javascript/estrelafeedback.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </html>

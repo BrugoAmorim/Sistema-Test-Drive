@@ -1,12 +1,15 @@
 
 import { getlocalStorage } from "../../../Public/javascript/localstorage.js";
 import { postStorageFeedback } from "../../../Public/javascript/localstoragefeedback.js";
+import { ExcluirAvaliacao } from "./deletarfeedback.js";
 
 const user = getlocalStorage();
 const nomeuser = document.getElementById("nm-user");
 
 const containerfeedback = document.getElementById("container-avaliacoes");
 window.onload = async () => {
+    
+    Limpar();
 
     nomeuser.appendChild(document.createTextNode(user.user));
     const meusFeedbacks = await listarFeedbacks();
@@ -32,6 +35,9 @@ const listarFeedbacks = async () => {
 }
 
 const CriarObjetoAvaliacao = (Feedback) => {
+
+    const iduser = Feedback.infousuario.idusuario;
+    const idfeed = Feedback.idavaliacao;
 
     const divblocoAval = document.createElement('div');
     divblocoAval.classList.add("bloco-avaliacao");
@@ -59,6 +65,7 @@ const CriarObjetoAvaliacao = (Feedback) => {
 
     const btnapagar = document.createElement('button');
     btnapagar.classList.add("btn-apag");
+    btnapagar.onclick = () => { ExcluirAvaliacao(iduser, idfeed) };
 
     const itrash = document.createElement('i');
     itrash.classList.add("fa");
@@ -167,5 +174,16 @@ const AddStars = (listestrelas) => {
         star.appendChild(document.createTextNode("★"));
 
         listestrelas.appendChild(star);
+    }
+}
+
+const Limpar = () => {
+
+    while(nomeuser.firstChild){
+        nomeuser.removeChild(nomeuser.firstChild);
+    }
+
+    while(containerfeedback.firstChild){
+        containerfeedback.removeChild(containerfeedback.firstChild);
     }
 }

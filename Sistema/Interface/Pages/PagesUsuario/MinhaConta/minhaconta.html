@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Conta</title>
     <link rel="shortcut icon" href="../../../Public/image/traffic-jam.ico" type="image/x-icon">
     <link rel="stylesheet" href="./minhaconta.css">
@@ -16,36 +16,44 @@
                     <div class="informacoes-usuario">
                         <div class="bloco-edit-user">
                             <div class="bloco-user">
-                                <h1>Bruno Gomes</h1>
+                                <h1 id="nm-user">
+                                    <!-- nome do usuario -->
+                                </h1>
                                 <a href="../EditarConta/editconta.html" class="link-configuracoes">
                                     <img src="../../../Public/image/configuracoes.png" height="35em" alt="editar conta">
                                 </a>
                             </div>
                             <div class="bloco-voltar">
-                                <button class="btn-voltar">
+                                <a href="../Home/homeusuario.html" class="btn-voltar">
                                     <img src="../../../Public/image/arrow-left.png" height="40em" alt="botao para voltar">
-                                </button>
+                                </a>
                             </div>
                         </div>
                         <div class="bloco-informacoes">
                             <div class="bloco-email">
-                                <input type="text" class="email" id="meuEmail" placeholder="Email" readonly value="bruno.gomes@gmail.com">
+                                <input type="text" class="email" id="meuEmail" placeholder="Email" readonly>
                             </div>
                             <div class="bloco-dtnascimento">
                                 <label class="lblnascimento" for="dtnascimento">Data de nascimento:</label>
-                                <input type="date" class="inpnascimento" id="dtnascimento">
+                                <input type="text" class="inpnascimento" id="dtnascimento" readonly>
                             </div>
                             <div class="bloco-ultimologin">
                                 <strong style="color: #808080;">Ultimo login</strong>
-                                <span>01/01/0001 ás 12:00:12</span>
+                                <span id="dtultimoLogin" style="color: #585858;">
+                                    <!-- 01/01/0001 ás 12:00:12 -->
+                                </span>
                             </div>
                             <div class="bloco-contacriada">
                                 <strong style="color: #808080;">Conta criada</strong>
-                                <span>01/01/0001 ás 12:00:12</span>
+                                <span id="dtcontaCriada" style="color: #585858;">
+                                    <!-- 01/01/0001 ás 12:00:12 -->
+                                </span>
                             </div>
                             <div class="bloco-ultimaalteracao">
                                 <strong style="color: #808080;">Ultima alteração</strong>
-                                <span>01/01/0001 ás 12:00:12</span>
+                                <span id="dtultimaAlteracao" style="color: #585858;">
+                                    <!-- 01/01/0001 ás 12:00:12 -->
+                                </span>
                             </div>
                             <div class="bloco-excluirconta">
                                 <button class="btn-excluir">
@@ -59,33 +67,33 @@
                     <div class="container-atividades">
                         <div class="atividades">
                             <div class="bloco-avaliacoes">
-                                <button class="btn-avaliacoes">Minhas avaliações</button>
+                                <button class="btn-avaliacoes" id="btn-avaliacoes">Minhas avaliações</button>
                             </div>
                             <div class="bloco-agendamentos">
-                                <button class="btn-agendamentos">Agendamentos realizados</button>
+                                <button class="btn-agendamentos" id="btn-agendamentos">Agendamentos realizados</button>
                             </div>
                         </div>
                         <!-- São dois tipos de informacoes que ficarão nessa div, as informacoes sobre as avaliacoes e sobre os agendamentos -->
-                        <div class="informacoes-atividades">
+                        <div class="informacoes-atividades" id="info-atividades">
                             <!-- <div class="container-agendamentos">
-                                <table class="table">
-                                    <thead class="coluna">
-                                        <tr class="info-column">
-                                            <th>Carro</th>
-                                            <th>Data do teste</th>
-                                            <th>Realizado</th>
-                                            <th>Desmarcado</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="registros">
-                                        <tr class="info-reg">
-                                            <td>asfd</td>
-                                            <td>adfasdf</td>
-                                            <td>asdfasdf</td>
-                                            <td>asdfasdf</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                    <table class="table">
+                                        <thead class="coluna">
+                                            <tr class="info-column">
+                                                <th>Carro</th>
+                                                <th>Data do teste</th>
+                                                <th>Realizado</th>
+                                                <th>Desmarcado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="registros">
+                                            <tr class="info-reg">
+                                                <td>asfd</td>
+                                                <td>adfasdf</td>
+                                                <td>asdfasdf</td>
+                                                <td>asdfasdf</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                             </div> -->
                             <!-- <div class="container-avaliacoes">
                                 <div class="avaliacao">
@@ -94,8 +102,13 @@
                                     </div>
                                     <div class="nota-data-publicacao">
                                         <div class="nota">
-                                            <strong>Nota:</strong>
-                                            <span style="margin-left: 5%;">1</span>
+                                            <ul id="list-stars" class="estrelas">
+                                                <li>★</li>
+                                                <li>★</li>
+                                                <li>★</li>
+                                                <li>★</li>
+                                                <li>★</li>
+                                            </ul>
                                         </div>
                                         <div class="data-pub">
                                             <strong>Ultima alteração:</strong>
@@ -118,5 +131,6 @@
             </div>
         </footer>
     </div>
+    <script src="./minhaconta.js" type="module"></script>
 </body>
 </html>

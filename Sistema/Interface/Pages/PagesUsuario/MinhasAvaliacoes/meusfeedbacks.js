@@ -21,7 +21,7 @@ window.onload = async () => {
     })
 }
 
-const listarFeedbacks = async () => {
+export const listarFeedbacks = async () => {
 
     let url = "http://localhost:5000/avaliacoes/minhas?idusuario=" + getlocalStorage().id;
 

@@ -2,6 +2,7 @@
 import { getStorageFeedback, deleteStorageFeedback, postStorageFeedback } from "../../../Public/javascript/localstoragefeedback.js";
 import { getlocalStorage } from "../../../Public/javascript/localstorage.js";
 import { colorStar } from "../MinhasAvaliacoes/meusfeedbacks.js";
+import { modeloData } from "../../../Public/javascript/utilsdata.js";
 
 const dataFeedback = getStorageFeedback();
 const nameUser = document.getElementById("nm-user");
@@ -19,27 +20,6 @@ window.onload = () => {
     MudarNota();
     AddvaloresFeedback(dataFeedback)
     colorStar(dataFeedback.nota, ListStars);
-}
-
-const modeloData = (datetime) => {
-
-    let dia = datetime.getDate();
-    dia = dia < 10 ? "0" + dia : dia;
-    let mes = datetime.getMonth() + 1;
-    mes = mes < 10 ? "0" + mes : mes;
-    let ano = datetime.getFullYear();
-    
-    let hora = datetime.getHours();
-    hora = hora < 10 ? "0" + hora : hora;
-    let minuto = datetime.getMinutes();
-    minuto = minuto < 10 ? "0" + minuto : minuto;
-    let segundo = datetime.getSeconds();
-    segundo = segundo < 10 ? "0" + segundo : segundo; 
-    
-    const modeldata = dia + "/" + mes + "/" + ano;
-    const horario = hora + ':' + minuto + ':' + segundo;
- 
-    return modeldata + " ás " + horario;
 }
 
 const btnSalvarAlt = document.getElementById("btn-salvar");

@@ -28,7 +28,8 @@ namespace Api.Business
             if(usuario.DsSenha != req.senha)
                 throw new ArgumentException("Senha incorreta, tente novamente");
 
-            return usuario;
+            Models.TbUsuario usuariologado = bd.LoginUsuario(req);
+            return usuariologado;
         }
 
         public Models.TbUsuario validarNovaConta(Models.Request.NovaContaRequest req){

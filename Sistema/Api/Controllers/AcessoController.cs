@@ -21,7 +21,7 @@ namespace Api.Controllers
             Models.Response.LoginResponse usuarioRes = conversor.TbUsuarioparaLoginRes(usuario);
 
             return usuarioRes;
-            }
+            } 
             catch(System.Exception ex){
 
                 return new BadRequestObjectResult(

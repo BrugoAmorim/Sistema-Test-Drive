@@ -11,6 +11,15 @@ namespace Api.Database
     {
         Models.dbTestDriveContext ctx = new Models.dbTestDriveContext();
         
+        public Models.TbUsuario LoginUsuario(Models.Request.LoginRequest loginreq){
+
+            Models.TbUsuario user = buscarUsuarioEmail(loginreq.email);
+            user.DtUltimoLogin = DateTime.Now;
+
+            ctx.SaveChanges();
+            return user;
+        }
+
         public Models.TbUsuario buscarUsuarioEmail(string email){
 
             List<Models.TbUsuario> usuarios = ctx.TbUsuarios.ToList();

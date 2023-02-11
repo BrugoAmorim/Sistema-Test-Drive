@@ -57,6 +57,7 @@ namespace Api.Database
             user.NmUsuario = req.usuario;
             user.DsSenha = req.senha;
             user.DtNascimento = req.nascimento;
+            user.DtContaAtualizada = DateTime.Now;
 
             ctx.SaveChanges();
             return user;

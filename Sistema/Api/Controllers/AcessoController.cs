@@ -60,7 +60,7 @@ namespace Api.Controllers
             catch(System.Exception ex){
 
                 return new BadRequestObjectResult(
-                    new Models.ErrorResponse(ex.Message, 404)
+                    new Models.ErrorResponse(ex.Message, 400)
                 );
             }
         }

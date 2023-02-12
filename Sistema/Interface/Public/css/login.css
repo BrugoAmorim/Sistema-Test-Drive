@@ -43,12 +43,13 @@ footer{
 }
 
 .titulo{
-    width: 40%;
+    min-width: 40%;
     height: auto;
 
     display: flex;
-    justify-content: center;
     font-size: 1.2em;
+    text-align: center;
+    justify-content: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -63,7 +64,7 @@ footer{
 
 .formulario{
     height: 75%;
-    width: 75%;
+    min-width: 75%;
 
     display: flex;
     align-items: center;
@@ -129,6 +130,7 @@ footer{
     outline: none;
 
     font-size: 1.1em;
+    text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -138,9 +140,13 @@ footer{
     border: 1px solid #1face4;
 }
 
+.btn-login:active{
+    transform: scale(0.98);
+}
+
 .creditos, .incorporacao{
     height: 60%;
-    width: 20%;
+    min-width: 20%;
 
     display: flex;
     align-items: center;
@@ -149,4 +155,8 @@ footer{
     color: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 1.3em;
+}
+
+.paragrafo-criarconta{
+    text-align: center;
 }

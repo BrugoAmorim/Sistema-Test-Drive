@@ -66,10 +66,10 @@ namespace Api.Controllers
         }
 
         [HttpDelete("conta/excluir/{idusuario}")]
-        public ActionResult<Models.SuccessResponse> ExcluircontaUser(int idusuario){
+        public ActionResult<Models.SuccessResponse> ExcluircontaUser(int idusuario, string senhaacesso){
 
             try{
-                validacoes.validarApagarConta(idusuario);
+                validacoes.validarApagarConta(idusuario, senhaacesso);
 
                 return new Models.SuccessResponse("Conta excluída", 200);
             }

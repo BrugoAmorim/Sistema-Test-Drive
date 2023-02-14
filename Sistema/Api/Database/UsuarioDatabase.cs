@@ -81,11 +81,7 @@ namespace Api.Database
             ctx.SaveChanges();
             
             List<Models.TbFeedback> avaliacoes = ctx.TbFeedbacks.Where(x => x.IdUsuario == user.IdUsuario).ToList();
-            foreach(Models.TbFeedback feedback in avaliacoes){
-
-                ctx.TbFeedbacks.Remove(feedback);
-                ctx.SaveChanges();
-            }
+            ctx.TbFeedbacks.RemoveRange(avaliacoes);
 
             ctx.TbUsuarios.Remove(user);
             ctx.SaveChanges();

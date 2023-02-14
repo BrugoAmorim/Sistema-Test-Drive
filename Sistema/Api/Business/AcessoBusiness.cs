@@ -96,7 +96,7 @@ namespace Api.Business
             return usuarioatualizado;
         }
     
-        public void validarApagarConta(int iduser){
+        public void validarApagarConta(int iduser, string senhaacesso){
 
             Models.TbUsuario user = bd.buscarUsuarioId(iduser);
 
@@ -105,6 +105,12 @@ namespace Api.Business
 
             if(user == null)
                 throw new ArgumentException("Esse usuário não foi encontrado");
+
+            if(string.IsNullOrEmpty(senhaacesso))
+                throw new ArgumentException("Campo senha de acesso vazio");
+
+            if(user.DsSenha != senhaacesso)
+                throw new ArgumentException("Senha de acesso incorreta");
 
             bd.ApagarUsuario(iduser);
         }

@@ -59,13 +59,17 @@ export const formatarData = (datatest) => {
 
     const data = new Date(datatest);
 
-    const hora = data.getHours();
-    const minuto = data.getMinutes();
-    const dia = data.getDate();
-    const mes = data.getMonth() + 1;
+    let hora = data.getHours();
+    hora = hora < 10 ? "0" + hora : hora;
 
-    if(mes < 10)
-        mes = "0" + mes;
+    let minuto = data.getMinutes();
+    minuto = minuto < 10 ? "0" + minuto : minuto;
+
+    let dia = data.getDate();
+    dia = dia < 10 ? "0" + dia : dia;
+
+    let mes = data.getMonth() + 1;
+    mes = mes < 10 ? "0" + mes : mes;
 
     return dia + "/" + mes + " ás " + hora + ":" + minuto;
 }

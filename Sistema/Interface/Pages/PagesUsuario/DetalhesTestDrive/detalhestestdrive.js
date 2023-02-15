@@ -1,4 +1,6 @@
 
+import { getlocalStorage } from '../../../Public/javascript/localstorage.js';
+
 const nomeusuario = document.getElementById("nm-user");
 window.onload = async () => {
 
@@ -74,10 +76,10 @@ const InserirValoresCarro = (dadoscarro) => {
 
 const atualizarDadosCliente = async () => {
 
-    const iduser = localStorage.getItem("id");
     const idcliente = await DetalhesTestDrive();
 
-    const url = "http://localhost:5000/TestDrive/agendamento/atualizarCliente/" + iduser + "/" + idcliente.dados.cliente.idcliente;
+    const url = "http://localhost:5000/TestDrive/agendamento/atualizarCliente/" + getlocalStorage().id + "/" + idcliente.dados.cliente.idcliente;
+
     const dadosClienteReq = {
  
         nomecliente: Nome.value,
@@ -119,5 +121,44 @@ const DetalhesTestDrive = async () => {
     });
 
     const res = chamaapi.json();
+    return res;
+}
+
+const btnDesmarcar = document.getElementById("btn-desmarcar");
+btnDesmarcar.onclick = () => {
+
+    swal({
+        title: 'Você está prestes a desmarcar seu test drive',
+        text: 'Uma vez desmarcado não há chance de remarcar, voce terá que fazer um novo agendamento, tem certeza que deseja continuar?',
+        dangerMode: true,
+        icon: 'warning',
+        buttons: ['Cancelar', 'Desmarcar']
+    }).then(async (data) => {
+
+        if(data){
+            
+            const testdesmarcado = await DesmarcarTestDrive();
+
+            if(testdesmarcado.codigo == 200)
+                swal(testdesmarcado.status, testdesmarcado.mensagem, 'success');
+            else if(testdesmarcado.codigo == 404)
+                swal(testdesmarcado.status, testdesmarcado.mensagem, 'error');
+        }
+    })
+}
+
+
+const DesmarcarTestDrive = async () => {
+
+    const test = await DetalhesTestDrive();
+
+    let url = "http://localhost:5000/TestDrive/agendamento/desmarcartestdrive/" + getlocalStorage().id + "/" + test.dados.cliente.idcliente + "/" + test.dados.idagendamento;
+
+    const chamaapi = await fetch(url, {
+        method: 'PUT',
+        mode: 'cors'
+    });
+
+    let res = chamaapi.json();
     return res;
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 #nullable disable
 
@@ -47,7 +48,8 @@ namespace Api.Database
 
         public Models.TbUsuario buscarUsuarioId(int iduser){
 
-            Models.TbUsuario user = ctx.TbUsuarios.FirstOrDefault(x => x.IdUsuario == iduser);
+            Models.TbUsuario user = ctx.TbUsuarios.Include(x => x.IdNivelAcessoNavigation)
+                                                  .FirstOrDefault(x => x.IdUsuario == iduser);
             return user;
         }
 

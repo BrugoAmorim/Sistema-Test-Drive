@@ -15,7 +15,6 @@ namespace Api.Business
 
             List<Models.TbCarro> allCars = bd.listarcarros();
 
-
             if(allCars.Count == 0)
                 throw new ArgumentException("Nenhum carro foi encontrado");
 

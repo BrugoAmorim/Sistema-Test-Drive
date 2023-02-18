@@ -10,7 +10,7 @@ namespace Api.Models
         public bool BlDesmarcado { get; set; }
         public bool BlRealizado { get; set; }
         public int? IdCliente { get; set; }
-        public int? IdCarro { get; set; }
+        public int IdCarro { get; set; }
 
         public virtual TbCarro? IdCarroNavigation { get; set; }
         public virtual TbCliente? IdClienteNavigation { get; set; }

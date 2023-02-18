@@ -7,24 +7,46 @@ namespace Api.Business
 {
     public class NegociosBusiness
     {
-        Database.UsuarioDatabase userbd = new Database.UsuarioDatabase();
-        Database.TestDriveDatabase carrosbd = new Database.TestDriveDatabase();
-        Database.NegociosDatabase negociosbd = new Database.NegociosDatabase();
-        public List<Models.Response.CarrosRequeridosResponse> validarCarrosPopulares(int idusuario){
+        Database.NegociosDatabase dbNegocios = new Database.NegociosDatabase();
+        
+        public void validarAcessoUsuario(int iduser){
 
-            Models.TbUsuario user = userbd.buscarUsuarioId(idusuario);
+            Database.UsuarioDatabase userbd = new Database.UsuarioDatabase();
+    
+            Models.TbUsuario user = userbd.buscarUsuarioId(iduser);
             if(user == null)
                 throw new ArgumentException("Esse usuário não foi encontrado");
 
             if(user.IdNivelAcesso != 1)
                 throw new ArgumentException("Você não tem permissão para acessar essa funcionalidade");
 
+        }
+        public List<Models.Response.CarrosRequeridosResponse> validarCarrosPopulares(int idusuario){
+
+            Database.TestDriveDatabase carrosbd = new Database.TestDriveDatabase();
+
+            validarAcessoUsuario(idusuario);
+
             List<Models.TbCarro> carros = carrosbd.listarcarros();
             if(carros.Count == 0)
                 throw new ArgumentException("Nenhum carro foi encontrado no sistema");
 
-            List<Models.Response.CarrosRequeridosResponse> carroNumAgendamentos = negociosbd.NumeroAgendamentos();
+            List<Models.Response.CarrosRequeridosResponse> carroNumAgendamentos = dbNegocios.NumeroAgendamentos();
             return carroNumAgendamentos;
+        }
+
+        public List<Models.Response.UsuariosAgendamentosResponse> validarAgendamentosUsuarios(int idusuario){
+
+            Database.TestDriveDatabase testsbd = new Database.TestDriveDatabase();
+
+            validarAcessoUsuario(idusuario);
+
+            List<Models.TbTestDrive> tests = testsbd.listartestdrives();
+            if(tests.Count == 0)
+                throw new ArgumentException("Ainda não há registros agendamentos");
+
+            List<Models.Response.UsuariosAgendamentosResponse> NumAgend = dbNegocios.UsuariosAgendamentos();
+            return NumAgend;
         }
     }
 }

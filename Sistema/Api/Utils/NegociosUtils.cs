@@ -25,5 +25,18 @@ namespace Api.Utils
             return infoCar;
         }
 
+        public Models.Response.UsuariosAgendamentosResponse.Usuario ExtrairInfoUsuario(Models.TbTestDrive test){
+
+            Database.UsuarioDatabase userbd = new Database.UsuarioDatabase();
+            Models.TbNivelAcesso nvlacesso = userbd.nivelacesso(test.IdClienteNavigation.IdUsuarioNavigation.IdNivelAcesso);
+
+            Models.Response.UsuariosAgendamentosResponse.Usuario user = new Models.Response.UsuariosAgendamentosResponse.Usuario();
+            user.email = test.IdClienteNavigation.IdUsuarioNavigation.DsEmail;
+            user.nome = test.IdClienteNavigation.IdUsuarioNavigation.NmUsuario;
+            user.nivelacesso = nvlacesso.DsNivel;
+
+            return user;
+        }
+
     }
 }

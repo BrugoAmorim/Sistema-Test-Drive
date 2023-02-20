@@ -6,16 +6,45 @@ A ideia venho por causa de um projeto que eu fiz no meu curso, a gente desenvolv
 
 ## Rodar localmente
 
-É necessario utilizar o donet para iniciar a API, para isso basta utilizar:
+É necessário instalar o <a href="https://dotnet.microsoft.com/en-us/download" target="_blank">.Net Core 6</a> para poder usar a API, após isso voce deve entrar no diretório do arquivo e dentro do terminal executar o seguinte comando:
 ```
 dotnet run
 ```
-Após isso voce pode entrar no seguinte diretório 'Interface/Pages/Login/login.html' e acessar o link html para ter acesso a interface do site.
+Depois disso você pode entrar no seguinte diretório <ins>Interface/Pages/Login/login.html</ins> e acessar o link html para ter acesso a interface do site.
 
-> Eu ainda pretendo adicionar um script do banco de dados com registros já inseridos
+## Funcionalidades
+
+- [x] Login
+- [ ] Esqueci minha senha
+- [x] Agendar
+- [x] Consultar agendamentos
+- [x] Desmarcar agendamento
+- [x] Editar agendamento
+- Feedback
+  - [x] Ver avaliações
+  - [x] Minhas avaliações
+  - [x] Fazer avaliação
+  - [x] Editar avaliação
+  - [x] Excluir avaliação
+- Conta
+  - [x] Criar conta
+  - [x] Excluir conta
+  - [x] Editar conta 
+- Gerente
+  - [x] Marcar como realizado/não realizado
+- Negocios
+  - [ ] Usuarios com mais agendamentos
+  - [ ] Carros mais requeridos
+  - [ ] Tests raelizados na semana
+  - [ ] Modelos mais populares
 
 ## Ferramentas utilizadas
 
-- .Net6
-- Mysql
-- HTML, CSS e JS vanilla
+<div display="flex" flex-direction="row">
+  <img height="40em" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" />
+  <img height="40em" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" />
+  <img height="40em" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
+  <img height="40em" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
+  <img height="40em" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
+</div>
+               

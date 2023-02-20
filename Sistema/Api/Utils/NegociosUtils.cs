@@ -38,5 +38,13 @@ namespace Api.Utils
             return user;
         }
 
+        public Models.Response.ModelosAgendamentosResponse.Modelo ExtrairInfoModelo(Models.TbTestDrive test){
+
+            Models.Response.ModelosAgendamentosResponse.Modelo modelo = new Models.Response.ModelosAgendamentosResponse.Modelo();
+            modelo.idModelo = test.IdCarroNavigation.IdModelo;
+            modelo.modelo = test.IdCarroNavigation.IdModeloNavigation.DsModelo;
+        
+            return modelo;
+        }
     }
 }

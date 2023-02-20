@@ -8,6 +8,7 @@ namespace Api.Business
     public class NegociosBusiness
     {
         Database.NegociosDatabase dbNegocios = new Database.NegociosDatabase();
+        Database.TestDriveDatabase testsbd = new Database.TestDriveDatabase();
         
         public void validarAcessoUsuario(int iduser){
 
@@ -23,11 +24,9 @@ namespace Api.Business
         }
         public List<Models.Response.CarrosRequeridosResponse> validarCarrosPopulares(int idusuario){
 
-            Database.TestDriveDatabase carrosbd = new Database.TestDriveDatabase();
-
             validarAcessoUsuario(idusuario);
 
-            List<Models.TbCarro> carros = carrosbd.listarcarros();
+            List<Models.TbCarro> carros = testsbd.listarcarros();
             if(carros.Count == 0)
                 throw new ArgumentException("Nenhum carro foi encontrado no sistema");
 
@@ -37,8 +36,6 @@ namespace Api.Business
 
         public List<Models.Response.UsuariosAgendamentosResponse> validarAgendamentosUsuarios(int idusuario){
 
-            Database.TestDriveDatabase testsbd = new Database.TestDriveDatabase();
-
             validarAcessoUsuario(idusuario);
 
             List<Models.TbTestDrive> tests = testsbd.listartestdrives();
@@ -47,6 +44,18 @@ namespace Api.Business
 
             List<Models.Response.UsuariosAgendamentosResponse> NumAgend = dbNegocios.UsuariosAgendamentos();
             return NumAgend;
+        }
+
+        public List<Models.Response.ModelosAgendamentosResponse> validarAgendamentosModelos(int idusuario){
+
+            validarAcessoUsuario(idusuario);
+
+            List<Models.TbModelo> modelos = testsbd.listarmodelos();
+            if(modelos.Count == 0)
+                throw new ArgumentException("Nenhum modelo de carro foi encontrado");
+
+            List<Models.Response.ModelosAgendamentosResponse> NumAgendModelos = dbNegocios.ModelosAgendamentos();
+            return NumAgendModelos;
         }
     }
 }

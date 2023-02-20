@@ -45,5 +45,21 @@ namespace Api.Database
 
             return AgendamentosUser;
         }
+
+        public List<Models.Response.ModelosAgendamentosResponse> ModelosAgendamentos(){
+            
+            List<Models.TbTestDrive> tests = dbTest.listartestdrives();
+
+            List<Models.Response.ModelosAgendamentosResponse> numModelos = tests.GroupBy(x => x.IdCarroNavigation.IdModeloNavigation)
+            .Select(z => new Models.Response.ModelosAgendamentosResponse {
+                numAgendamentos = z.Where(Num => Num.IdCarroNavigation.IdModelo == Num.IdCarroNavigation.IdModelo)
+                .Count(),
+                modelo = conversor.ExtrairInfoModelo(z.First(model => model.IdCarroNavigation.IdModelo == model.IdCarroNavigation.IdModelo))
+            })
+            .OrderByDescending(x => x.numAgendamentos)
+            .ToList();
+
+            return numModelos;
+        }
     }
 }

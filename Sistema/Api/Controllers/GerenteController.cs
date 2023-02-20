@@ -44,5 +44,41 @@ namespace Api.Controllers
                 );
             }
         }
+
+        [HttpGet("negocios/modelospopulares/{idusuario}")]
+        public ActionResult<List<Models.Response.ModelosAgendamentosResponse>> ModelosPopulares(int idusuario){
+
+            try{
+
+                List<Models.Response.ModelosAgendamentosResponse> numModelos = validacoes.validarAgendamentosModelos(idusuario);
+
+                Database.TestDriveDatabase tests = new Database.TestDriveDatabase();
+                List<Models.TbModelo> modelos = tests.listarmodelos();
+                
+                foreach(Models.TbModelo item in modelos){
+
+                    if(!numModelos.Any(info => info.modelo.idModelo == item.IdModelo)){
+
+                        numModelos.Add(new Models.Response.ModelosAgendamentosResponse {
+                            numAgendamentos = 0,
+                            modelo = new Models.Response.ModelosAgendamentosResponse.Modelo{
+                                idModelo = item.IdModelo,
+                                modelo = item.DsModelo
+                            }
+                        });
+                    }
+                    else
+                        continue;
+                }
+
+                return numModelos;
+            }
+            catch(System.Exception ex){
+
+                return new BadRequestObjectResult(
+                    new Models.ErrorResponse(ex.Message, 400)
+                );
+            }
+        }
     }
 }

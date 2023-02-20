@@ -16,7 +16,7 @@ namespace Api.Models
         public DateTime DtAnoModelo { get; set; }
         public string DsPotencia { get; set; } = null!;
         public decimal VlPreco { get; set; }
-        public int? IdModelo { get; set; }
+        public int IdModelo { get; set; }
         public int? IdFabricante { get; set; }
         public int? IdCambio { get; set; }
         public int? IdCombustivel { get; set; }

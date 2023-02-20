@@ -101,5 +101,10 @@ namespace Api.Database
             ctx.SaveChanges();
             return agend;
         }
+        public List<Models.TbModelo> listarmodelos(){
+
+            List<Models.TbModelo> modeloscarros = ctx.TbModelos.ToList();
+            return modeloscarros;
+        }
     }
 }

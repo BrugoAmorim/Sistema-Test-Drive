@@ -47,7 +47,17 @@ PesquisarNome.onclick = async () => {
     const agendamentos = await listarAgendamentos();
     
     const Nome = document.getElementById("inp-nome").value;
-    const user = agendamentos.filter(x => x.dados.cliente.cliente.toLowerCase() == Nome.toLowerCase());
+    const user = [];
+
+    agendamentos.map((test) => {
+
+        let nameclient = test.dados.cliente.cliente;
+        nameclient = nameclient.toLowerCase();
+
+        if(nameclient.includes(Nome.toLowerCase())){
+            user.push(test)
+        }
+    })
 
     if(user.length == 0)
         swal("Este cliente não foi encontrado", '', "error");
@@ -58,8 +68,7 @@ PesquisarNome.onclick = async () => {
 
         user.map(item => {
 
-            const registro = criaRegistro(item.dados);
-            
+            const registro = criaRegistro(item.dados);            
             tbody.appendChild(registro);
         })
     }

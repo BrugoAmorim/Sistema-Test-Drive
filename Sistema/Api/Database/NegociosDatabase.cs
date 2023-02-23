@@ -61,5 +61,21 @@ namespace Api.Database
 
             return numModelos;
         }
+
+        public List<Models.Response.RelatorioResponse> CriarRelatorio(List<DateTime> consultarDatas){
+            
+            List<Models.TbTestDrive> tests = dbTest.listartestdrives();
+            List<Models.Response.RelatorioResponse> relatorio = new List<Models.Response.RelatorioResponse>();
+
+            foreach(DateTime databuscar in consultarDatas){
+
+                relatorio.Add(
+                    new Models.Response.RelatorioResponse{
+                    data = databuscar,
+                    numTestDrive = tests.Where(x => x.DtTestDrive.Date == databuscar).Count()
+                });
+            }
+            return relatorio;
+        }
     }
 }

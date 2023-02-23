@@ -57,5 +57,31 @@ namespace Api.Business
             List<Models.Response.ModelosAgendamentosResponse> NumAgendModelos = dbNegocios.ModelosAgendamentos();
             return NumAgendModelos;
         }
+
+        public List<Models.Response.RelatorioResponse> validarConsultaRelatorio(int idusuario, DateTime data){
+
+            Utils.RelatorioUtils ajustarData = new Utils.RelatorioUtils();
+            validarAcessoUsuario(idusuario);
+
+            if(data.Year <= 0 || data.Month <= 0 || data.Day <= 0)
+                throw new ArgumentException("Insira uma data válida");
+
+            string DiaSemana = data.DayOfWeek.ToString();
+            if(DiaSemana == "Saturday" || DiaSemana == "Sunday"){
+
+                List<DateTime> consultarDatas = ajustarData.duasSemanasAtras(data);
+                
+                List<Models.Response.RelatorioResponse> relatorio = dbNegocios.CriarRelatorio(consultarDatas);
+                return relatorio;
+            }
+            else{
+
+                DateTime AvancarData = ajustarData.AvancarParaSexta(data);
+                List<DateTime> consultarDts = ajustarData.duasSemanasAtras(AvancarData);
+
+                List<Models.Response.RelatorioResponse> relatorio = dbNegocios.CriarRelatorio(consultarDts);
+                return relatorio;
+            }
+        }
     }
 }

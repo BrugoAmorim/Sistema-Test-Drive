@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 
 #nullable disable
-
 namespace Api.Utils
 {
     public class TestDriveUtils
@@ -113,7 +112,7 @@ namespace Api.Utils
             else if(test.BlDesmarcado == true)
                 TestRes.mensagem = "Seu test drive foi desmarcado com sucesso";    
 
-            Models.Response.AgendamentoResponse.Dados data = new Models.Response.AgendamentoResponse.Dados();
+            Models.Response.TestDriveResponse data = new Models.Response.TestDriveResponse();
             data.idagendamento = test.IdTestDrive;
             data.datatest = test.DtTestDrive;
             data.desmarcado = test.BlDesmarcado;

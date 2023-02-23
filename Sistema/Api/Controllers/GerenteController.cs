@@ -80,5 +80,20 @@ namespace Api.Controllers
                 );
             }
         }
+
+        [HttpGet("negocios/relatorio/{idusuario}")]
+        public ActionResult<List<Models.Response.RelatorioResponse>> Relatorio(int idusuario, DateTime data){
+            
+            try{
+                List<Models.Response.RelatorioResponse> relatorio = validacoes.validarConsultaRelatorio(idusuario, data);
+                return relatorio;
+            }
+            catch(System.Exception ex){
+
+                return new BadRequestObjectResult(
+                    new Models.ErrorResponse(ex.Message, 400)
+                );
+            }
+        }
     }
 }

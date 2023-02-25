@@ -6,7 +6,14 @@ A ideia venho por causa de um projeto que eu fiz no meu curso, a gente desenvolv
 
 ## Rodar localmente
 
-É necessário instalar o <a href="https://dotnet.microsoft.com/en-us/download" target="_blank">.Net Core 6</a> para poder usar a API, após isso voce deve entrar no diretório do arquivo e dentro do terminal executar o seguinte comando:
+É preciso ter instalado em sua máquina o banco de dados <strong>Mysql</strong>, após isso voce precisará criar as entidades que fazem parte do sistema. Caso queira usar, também deixei alguns scripts que fazem inserts de registros referentes a cada uma dessas tabelas.
+> Você pode encontrá-los em <ins>Analise-Sistema/banco-de-dados</ins>
+
+É necessário instalar o <a href="https://dotnet.microsoft.com/en-us/download" target="_blank">.Net Core 6</a> para poder usar a API, após isso voce deve entrar no diretório do arquivo e dentro do terminal executar os seguintes comandos:
+
+```
+dotnet restore
+```
 ```
 dotnet run
 ```
@@ -32,9 +39,10 @@ Depois disso você pode entrar no seguinte diretório <ins>Interface/Pages/Login
   - [x] Editar conta 
 - Gerente
   - [x] Marcar como realizado/não realizado
+  - [ ] Avaliações dos clientes
 - Negocios
   - [ ] Usuarios com mais agendamentos
-  - [ ] Carros mais requeridos
+  - [x] Carros mais populares
   - [ ] Tests raelizados na semana
   - [ ] Modelos mais populares
 

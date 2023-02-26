@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Negocios - Carros mais populares</title>
+    <title>Negocios - Modelos populares</title>
+    <link rel="stylesheet" href="./modelospopulares.css">
     <link rel="shortcut icon" href="../../../Public/image/traffic-jam.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./carrospopulares.css">
-    
+
     <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js"></script>
     <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js"></script>
 </head>
@@ -15,32 +15,29 @@
     <div class="container-master">
         <div class="cabecalho">
             <div class="links">
-                <a href="../ModelosPopulares/modelospopulares.html">Modelos populares</a>
+                <a href="../CarrosPopulares/carrospopulares.html">Carros populares</a>
                 <a href="#">Melhores clientes</a>
                 <a href="#">Testes realizados na semana</a>
             </div>
             <div class="container-voltar">
-                <a href="../Negocios/negocios.html">
-                    <img src="../../../Public/image/arrow-left.png" height="45em" alt="seta para voltar">
+                <a href="../Negocios/negocios.html" class="voltar">
+                    <img src="../../../Public/image/arrow-left.png" height="45em" alt="seta apontando para a esquerda">
                 </a>
             </div>
         </div>
-        <article>
-            <div class="container-titulo">
-                <h1>Carros mais populares</h1>
-            </div>
-            <div class="container-desc">
-                <p>
-                    Veja por aqui os carros que os clientes mais optam por fazer agendamentos.
-                    O gráfico retorna os dez carros mais populares de sua concessionária, veja abaixo:
-                </p>
-            </div>
-            <div class="container-grafico">
-                <div class="grafico">
-                    <div id="grafico-pizza" class="grafico-pizza"></div>
+        <div class="container-grafico">
+            <div class="container-guia">
+                <div class="titulo">
+                    <h1>Modelos mais populares</h1>
+                </div>
+                <div class="desc">
+                    <p>Consulte os modelos de carros mais populares de sua concessonária. Abaixo é possivel ver um gráfico que lhe informa quais são os modelos mais escolhidos por seus clientes.</p>
                 </div>
             </div>
-        </article>
+            <div class="grafico">
+                <div id="grafico-pizza" class="grafico-pizza"></div>
+            </div>
+        </div>
         <footer>
             <div class="dev">
                 @BrugoAmorim
@@ -50,7 +47,7 @@
             </div>
         </footer>
     </div>
-    <script src="./carrospopulares.js" type="module"></script>
+    <script src="./modelospopulares.js" type="module"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </html>

@@ -4,39 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Negocios - Modelos populares</title>
-    <link rel="stylesheet" href="./modelospopulares.css">
+    <title>Negocios - Melhores clientes</title>
+    <link rel="stylesheet" href="./melhoresclientes.css">
     <link rel="shortcut icon" href="../../../Public/image/traffic-jam.ico" type="image/x-icon">
-
-    <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js" type="text/javascript"></script>
 </head>
 <body>
     <div class="container-master">
         <div class="cabecalho">
             <div class="links">
                 <a href="../CarrosPopulares/carrospopulares.html">Carros populares</a>
-                <a href="../MelhoresClientes/melhoresclientes.html">Melhores clientes</a>
+                <a href="../ModelosPopulares/modelospopulares.html">Modelos populares</a>
                 <a href="#">Testes realizados na semana</a>
             </div>
             <div class="container-voltar">
-                <a href="../Negocios/negocios.html" class="voltar">
+                <a href="../Negocios/negocios.html">
                     <img src="../../../Public/image/arrow-left.png" height="45em" alt="seta apontando para a esquerda">
                 </a>
             </div>
         </div>
-        <div class="container-grafico">
+        <div class="container">
             <div class="container-guia">
                 <div class="titulo">
-                    <h1>Modelos mais populares</h1>
+                    <h1>Melhores Clientes</h1>
                 </div>
                 <div class="desc">
-                    <p>Consulte os modelos de carros mais populares de sua concessonária. Abaixo é possivel ver um gráfico que lhe informa quais são os modelos mais escolhidos por seus clientes.</p>
+                    <p>Veja o relatório dos melhores clientes de sua concessonária, ou seja, os que mais costumam fazer agendamentos em sua loja. As informações são mostradas em um gráfico de barra, veja abaixo:</p>
                 </div>
             </div>
-            <div class="grafico">
-                <div id="grafico-pizza" class="grafico-pizza"></div>
-            </div>
+            <div class="container-grafico" id="grafico"></div>
         </div>
         <footer>
             <div class="dev">
@@ -47,7 +43,6 @@
             </div>
         </footer>
     </div>
-    <script src="./modelospopulares.js" type="module"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./melhoresclientes.js" type="module"></script>
 </body>
 </html>

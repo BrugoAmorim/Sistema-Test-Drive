@@ -1,0 +1,166 @@
+
+body{
+    height: 150vh;
+    margin: 0%;
+    padding: 0%;
+}
+
+.container-master{
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecalho{
+    height: 10%;
+    background-color: #87ceeb;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.links{
+    height: 70%;
+    min-width: 50%;
+    width: auto;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.links a{
+    outline: none;
+    color: black;
+    font-size: 1.3em;
+    text-align: center;
+    text-decoration: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.links a:hover{
+    transition: 0.2s;
+    transform: scale(1.04);
+}
+
+.links a:active{
+    transition: 0.2s;
+    transform: scale(1.02);
+}
+
+.container-voltar{
+    height: 70%;
+    width: 10%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-voltar a{
+    height: 90%;
+    width: 35%;
+
+    border: none;
+    border-radius: 6px;
+    outline: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-voltar a:hover{
+    transition: 0.2s;
+    background-color: rgba(0, 0, 0, 0.123);
+}
+
+footer{
+    height: 11%;
+    background-color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dev, .incorporacao{
+    height: 70%;
+    width: 20%;
+
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 1.3em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.container{
+    height: 80%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container-guia{
+    height: 30%;
+    width: 95%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.titulo{
+    height: 40%;
+    width: 100%;
+    border-bottom: 1px solid silver;
+
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo h1{
+    font-size: 2.4em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.desc{
+    height: 35%;
+    width: 95%;
+
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.desc p{
+    text-align: center;
+    font-size: 1.3em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.container-grafico{
+    height: 70%;
+    width: 95%;
+
+    border-top: 1px solid silver;
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+
+    display: flex;
+    align-items: center;
+}

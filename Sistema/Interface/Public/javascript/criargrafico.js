@@ -15,3 +15,24 @@ export const createConfigsPizza = (data) => {
     chart.container('grafico-pizza');
     chart.draw();
 }
+
+export const createConfigsBars = (data) => {
+    
+    const chart = anychart.bar();
+
+    // create a bar series and set the data
+    const series = chart.bar(data);
+
+    // set the padding between bar groups
+    chart.barGroupsPadding(0);
+
+    // set the titles of the axes
+    chart.title("Clientes com o maior número de agendamentos");
+
+    // set the container id
+    chart.container("grafico");
+
+    // initiate drawing the chart
+    chart.draw();
+
+}

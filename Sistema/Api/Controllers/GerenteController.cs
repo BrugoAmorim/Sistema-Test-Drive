@@ -35,7 +35,7 @@ namespace Api.Controllers
             try{
 
                 List<Models.Response.UsuariosAgendamentosResponse> sumAgendUsers = validacoes.validarAgendamentosUsuarios(idusuario);
-                return sumAgendUsers;
+                return sumAgendUsers.Take(5).ToList();
             }
             catch(System.Exception ex){
 

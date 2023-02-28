@@ -20,7 +20,7 @@ window.onload = async () => {
 
 const verAvaliacoes = async () => {
 
-    let url = "http://localhost:5000/avaliacoes/outras?idusuario=" + user.id;
+    let url = "http://localhost:5000/avaliacoes/outras?idusuario=" + user.id + "&ordenar=novos";
 
     const chamaapi = await fetch(url, {
         method: 'GET',

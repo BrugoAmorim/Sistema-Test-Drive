@@ -19,3 +19,27 @@ export const modeloData = (datetime) => {
  
     return modeldata + " ás " + horario;
 }
+
+export const AnoMesDia = (data) => {
+
+    const dia = data.getDate() < 10 ? "0" + data.getDate() : data.getDate();
+    const ano = data.getFullYear() < 10 ? "0" + data.getFullYear() : data.getFullYear();
+    
+    let mes = data.getMonth() + 1;
+    mes = mes < 10 ? "0" + mes : mes;
+
+    const vlDt = ano + '-' + mes + '-' + dia;
+    return vlDt;
+}
+
+export const DiaMesAno = (data) => {
+
+    const dia = data.getDate() < 10 ? "0" + data.getDate() : data.getDate();
+    const ano = data.getFullYear() < 10 ? "0" + data.getFullYear() : data.getFullYear();
+    
+    let mes = data.getMonth() + 1;
+    mes = mes < 10 ? "0" + mes : mes;
+
+    const formatoBrasileiro = dia + '-' + mes + '-' + ano;
+    return formatoBrasileiro;
+}

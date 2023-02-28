@@ -34,5 +34,26 @@ export const createConfigsBars = (data) => {
 
     // initiate drawing the chart
     chart.draw();
+}
 
+export const createConfigsColumn = (data, nameGrafic, title) => {
+
+    // create a chart
+    const chart = anychart.column();
+
+    // create a column series and set the data
+    const series = chart.column(data);
+
+    // set the chart title
+    chart.title(title);
+
+    // set the titles of the axes
+    chart.yAxis().title("Número de agendamentos");
+    chart.xAxis().title("Dias da semana");
+
+    // set the container id
+    chart.container(nameGrafic);
+
+    // initiate drawing the chart
+    chart.draw();
 }

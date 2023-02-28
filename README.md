@@ -41,10 +41,10 @@ Depois disso você pode entrar no seguinte diretório <ins>Interface/Pages/Login
   - [x] Marcar como realizado/não realizado
   - [ ] Avaliações dos clientes
 - Negocios
-  - [ ] Usuarios com mais agendamentos
+  - [x] Usuarios com mais agendamentos
   - [x] Carros mais populares
-  - [ ] Tests raelizados na semana
-  - [ ] Modelos mais populares
+  - [x] Tests raelizados na semana
+  - [x] Modelos mais populares
 
 ## Ferramentas utilizadas
 

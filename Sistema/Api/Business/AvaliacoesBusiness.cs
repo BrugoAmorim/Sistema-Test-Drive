@@ -29,7 +29,7 @@ namespace Api.Business
             return meusfeedbacks;
         }
 
-        public List<Models.TbFeedback> validarOutrosFeedbacks(int iduser){
+        public List<Models.TbFeedback> validarOutrosFeedbacks(int iduser, string ordem){
 
             List<Models.TbFeedback> avl = bdfeedback.listarFeedbacks();
 
@@ -43,7 +43,15 @@ namespace Api.Business
             if(avl.Count == 0)
                 throw new ArgumentException("Ainda não há registros de avaliações");
 
-            return avl.Where(x => x.IdUsuario != iduser).ToList(); 
+            List<Models.TbFeedback> avlsAntigas = avl.Where(x => x.IdUsuario != iduser).OrderBy(x => x.DtUltimaAlteracao).ToList();
+            List<Models.TbFeedback> avlsNovas = avlsAntigas.OrderByDescending(x => x.DtUltimaAlteracao).ToList();
+
+            if(ordem == "antigos")
+                return avlsAntigas;
+            else if(ordem == "novos")
+                return avlsNovas;
+            else
+                return avlsNovas;
         }
 
         public Models.TbFeedback validarnovoFeedback(Models.Request.AvaliacaoRequest req, int idusuario){

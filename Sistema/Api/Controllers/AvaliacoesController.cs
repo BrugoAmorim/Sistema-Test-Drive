@@ -31,10 +31,10 @@ namespace Api.Controllers
         }
 
         [HttpGet("outras")]
-        public ActionResult<List<Models.Response.AvaliacaoResponse>> outrasAvaliacoes(int idusuario){
+        public ActionResult<List<Models.Response.AvaliacaoResponse>> outrasAvaliacoes(int idusuario, string ordenar){
 
             try{
-                List<Models.TbFeedback> feedbacks = validacoes.validarOutrosFeedbacks(idusuario);
+                List<Models.TbFeedback> feedbacks = validacoes.validarOutrosFeedbacks(idusuario, ordenar);
                 List<Models.Response.AvaliacaoResponse> feedbackRes = converter.listaAvlparaAvlRes(feedbacks);
 
                 return feedbackRes;

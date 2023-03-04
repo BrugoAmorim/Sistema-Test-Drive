@@ -32,7 +32,9 @@ namespace Api.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql("host=localhost;user=root;password=12345;database=dbTestDrive", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.26-mysql"));
+                string conexaoMySql = "host=localhost;user=root;password=12345;database=dbTestDrive";
+
+                optionsBuilder.UseMySql(conexaoMySql, Microsoft.EntityFrameworkCore.ServerVersion.AutoDetect(conexaoMySql));
             }
         }
 

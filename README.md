@@ -6,23 +6,34 @@ A ideia venho por causa de um projeto que eu fiz no meu curso, a gente desenvolv
 
 ## Rodar localmente
 
-É preciso ter instalado em sua máquina o banco de dados <strong>Mysql</strong>, após isso voce precisará criar as entidades que fazem parte do sistema. Caso queira usar, também deixei alguns scripts que fazem inserts de registros referentes a cada uma dessas tabelas.
+É preciso ter instalado em sua máquina o banco de dados <strong>Mysql</strong>. Caso queira usar, também deixei alguns scripts que fazem inserts de registros referentes a cada uma das tabelas.
 > Você pode encontrá-los em <ins>Analise-Sistema/banco-de-dados</ins>
 
 É necessário instalar o <a href="https://dotnet.microsoft.com/en-us/download" target="_blank">.Net Core 6</a> para poder usar a API, após isso voce deve entrar no diretório do arquivo e dentro do terminal executar os seguintes comandos:
 
+Para restaurar os arquivos do projeto.
 ```
 dotnet restore
 ```
+Para iniciar as migrações que criarão o banco de dados e as tabelas que o compõem.
+```
+dotnet ef database update
+```
+> Para o comando funcionar é necessário você alterar as chaves de acesso, para isso entre na pasta <ins>Api/Models/dbTestDriveContext.cs</ins> e na função OnConfiguring, altere o usuário e a senha para o seu respectivo banco de dados.
+
+Para iniciar a API.
 ```
 dotnet run
 ```
 Depois disso você pode entrar no seguinte diretório <ins>Interface/Pages/Login/login.html</ins> e acessar o link html para ter acesso a interface do site.
 
+<div height="auto" width="1000em" align="center" display="flex">
+  <img src="https://user-images.githubusercontent.com/87936511/222870952-058dbe17-5dc5-4086-accd-75d7f49bc253.png" height="550em" width="900em">
+</div>
+
 ## Funcionalidades
 
 - [x] Login
-- [ ] Esqueci minha senha
 - [x] Agendar
 - [x] Consultar agendamentos
 - [x] Desmarcar agendamento

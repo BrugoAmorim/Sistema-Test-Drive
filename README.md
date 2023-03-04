@@ -39,7 +39,7 @@ Depois disso você pode entrar no seguinte diretório <ins>Interface/Pages/Login
   - [x] Editar conta 
 - Gerente
   - [x] Marcar como realizado/não realizado
-  - [ ] Avaliações dos clientes
+  - [x] Avaliações dos clientes
 - Negocios
   - [x] Usuarios com mais agendamentos
   - [x] Carros mais populares
